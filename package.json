@@ -23,14 +23,14 @@
 		"lint": "npm run eslint -- --fix"
 	},
 	"dependencies": {
-		"webpack": "^4.42.1",
 		"react": "^16.13.1",
-		"react-dom": "^16.13.1"
+		"react-dom": "^16.13.1",
+		"webpack": "^4.42.1"
 	},
 	"devDependencies": {
-		"neutrino": "9.1.0",
+		"@constgen/eslint": "1.1.0",
 		"eslint": "6.8.0",
-		"@constgen/eslint": "1.1.0"
+		"neutrino": "9.1.0"
 	},
 	"engines": {
 		"node": ">=12",
