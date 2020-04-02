@@ -13,6 +13,7 @@ module.exports = function () {
 			.resolve
 				.alias
 					.set('@mdx-js/tag', require.resolve('@mdx-js/tag'))
+					.set('@mdx-js/react', require.resolve('@mdx-js/react'))
 					.end()
 				.end()
 			.module
