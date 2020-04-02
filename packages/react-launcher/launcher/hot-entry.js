@@ -1,15 +1,15 @@
-import { hot, setConfig } from 'react-hot-loader';
+import { hot, setConfig } from 'react-hot-loader'
 
-setConfig({ logLevel: 'error' });
+setConfig({ logLevel: 'error' })
 
 function requireEntry () {
-	let Entry = require('__entry__'); // eslint-disable-line import/no-unresolved
+	let Entry = require('__entry__') // eslint-disable-line import/no-unresolved
 
-	return Entry.default || Entry;
+	return Entry.default || Entry
 }
 
 if (module.hot) {
-	console.clear(); // eslint-disable-line no-console
+	console.clear() // eslint-disable-line no-console
 }
 
-export default hot(module)(requireEntry());
+export default hot(module)(requireEntry())

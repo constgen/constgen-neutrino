@@ -1,7 +1,7 @@
-import 'react-hot-loader/patch';
-import React from 'react'; // eslint-disable-line import/no-unresolved
-import { render } from 'react-dom'; // eslint-disable-line import/no-unresolved
+import 'react-hot-loader/patch'
+import React from 'react'
+import { render } from 'react-dom'
 
-import HotEntry from './hot-entry';
+import HotEntry from './hot-entry'
 
-render(React.createElement(HotEntry), document.getElementById('root'));
+render(React.createElement(HotEntry), document.getElementById('root'))

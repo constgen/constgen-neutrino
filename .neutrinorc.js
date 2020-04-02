@@ -4,7 +4,7 @@ module.exports = {
    use: [
       constgenEslint({
          eslint: {
-				env: { node: true }
+				env: { node: true, browser: true }
          }
       })
    ]

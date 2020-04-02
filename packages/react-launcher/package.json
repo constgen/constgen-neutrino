@@ -23,7 +23,9 @@
 		"deepmerge": "4.2.2"
 	},
 	"peerDependencies": {
-		"neutrino": "^9.0.0"
+		"neutrino": "^9.0.0",
+		"react": "^16.10.0",
+    	"react-dom": "^16.10.0"
 	},
 	"files": [
 		"*.js",
