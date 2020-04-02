@@ -1,0 +1,35 @@
+{
+	"name": "@constgen/neutrino-progress",
+	"version": "0.1.0",
+	"description": "Neutrino middleware showing a progressbar during the compilation",
+	"main": "index.js",
+	"author": "Constantine Genchevsky <const.gen@gmail.com>",
+	"license": "GPL-3.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/constgen/constgen-neutrino.git"
+	},
+	"homepage": "https://github.com/constgen/constgen-neutrino/packages/progress",
+	"keywords": [
+		"neutrino",
+		"neutrino-middlware",
+		"webpack",
+		"progress",
+		"progressbar"
+	],
+	"dependencies": {
+		"webpackbar": "4.0.0"
+	},
+	"peerDependencies": {
+		"neutrino": "^9.0.0"
+	},
+	"files": [
+		"*.js",
+		"README.md",
+		"package.json"
+	],
+	"engines": {
+		"node": ">=12",
+		"npm": ">=5.4.0"
+	}
+}

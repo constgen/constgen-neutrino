@@ -1,0 +1,39 @@
+{
+	"name": "@constgen/neutrino-revision",
+	"version": "0.1.0",
+	"description": "Neutrino middleware for versioning of the application based on the Git revision",
+	"main": "index.js",
+	"author": "Constantine Genchevsky <const.gen@gmail.com>",
+	"license": "GPL-3.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/constgen/constgen-neutrino.git"
+	},
+	"homepage": "https://github.com/constgen/constgen-neutrino/packages/revision",
+	"keywords": [
+		"neutrino",
+		"neutrino-middlware",
+		"webpack",
+		"ci",
+		"git",
+		"revision",
+		"version"
+	],
+	"dependencies": {
+		"git-revision-webpack-plugin": "3.0.4",
+		"env-ci": "5.0.1"
+	},
+	"peerDependencies": {
+		"neutrino": "^9.0.0",
+		"webpack": "^4.0.0"
+	},
+	"files": [
+		"*.js",
+		"README.md",
+		"package.json"
+	],
+	"engines": {
+		"node": ">=12",
+		"npm": ">=5.4.0"
+	}
+}

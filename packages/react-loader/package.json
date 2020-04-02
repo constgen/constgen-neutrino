@@ -1,0 +1,43 @@
+{
+	"name": "@constgen/neutrino-react-loader",
+	"version": "0.1.0",
+	"description": "Neutrino middleware for React files",
+	"main": "index.js",
+	"author": "Constantine Genchevsky <const.gen@gmail.com>",
+	"license": "GPL-3.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/constgen/constgen-neutrino.git"
+	},
+	"homepage": "https://github.com/constgen/constgen-neutrino/packages/react-loader",
+	"keywords": [
+		"neutrino",
+		"neutrino-middlware",
+		"webpack",
+		"react",
+		"babel",
+		"jsx"
+	],
+	"dependencies": {
+		"@babel/core": "^7.8.4",
+		"babel-merge": "3.0.0",
+		"deepmerge": "4.2.2",
+		"@constgen/neutrino-babel-loader": "0.1.0",
+		"@babel/preset-react": "7.8.3",
+		"babel-plugin-transform-jsx-url": "1.0.2",
+		"babel-plugin-jsx-pragmatic": "1.0.2",
+		"babel-plugin-transform-react-remove-prop-types": "0.4.24"
+	},
+	"peerDependencies": {
+		"neutrino": "^9.0.0"
+	},
+	"files": [
+		"*.js",
+		"README.md",
+		"package.json"
+	],
+	"engines": {
+		"node": ">=12",
+		"npm": ">=5.4.0"
+	}
+}
