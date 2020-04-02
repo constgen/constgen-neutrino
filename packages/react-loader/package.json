@@ -19,14 +19,14 @@
 		"jsx"
 	],
 	"dependencies": {
-		"@babel/core": "^7.8.4",
+		"@babel/core": "^7.9.0",
+		"@babel/preset-react": "7.9.4",
+		"@constgen/neutrino-babel-loader": "workspace:0.1.0",
 		"babel-merge": "3.0.0",
-		"deepmerge": "4.2.2",
-		"@constgen/neutrino-babel-loader": "0.1.0",
-		"@babel/preset-react": "7.8.3",
-		"babel-plugin-transform-jsx-url": "1.0.2",
 		"babel-plugin-jsx-pragmatic": "1.0.2",
-		"babel-plugin-transform-react-remove-prop-types": "0.4.24"
+		"babel-plugin-transform-jsx-url": "1.0.2",
+		"babel-plugin-transform-react-remove-prop-types": "0.4.24",
+		"deepmerge": "4.2.2"
 	},
 	"peerDependencies": {
 		"neutrino": "^9.0.0"

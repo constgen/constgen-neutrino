@@ -19,9 +19,10 @@
 		"react"
 	],
 	"dependencies": {
-		"mdx-loader": "2.2.1",
 		"@mdx-js/tag": "*",
-		"arrify": "2.0.1"
+		"@mdx-js/react": "*",
+		"arrify": "2.0.1",
+		"mdx-loader": "3.0.2"
 	},
 	"peerDependencies": {
 		"neutrino": "^9.0.0"

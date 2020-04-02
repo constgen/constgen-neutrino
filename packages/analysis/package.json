@@ -19,9 +19,9 @@
 		"bundle"
 	],
 	"dependencies": {
-		"webpack-bundle-analyzer": "3.4.1",
+		"@constgen/neutrino-dependency": "workspace:0.1.0",
 		"deepmerge": "4.2.2",
-		"@constgen/neutrino-dependency": "0.1.0"
+		"webpack-bundle-analyzer": "3.6.1"
 	},
 	"peerDependencies": {
 		"neutrino": "^9.0.0"
