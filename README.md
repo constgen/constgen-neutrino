@@ -4,7 +4,7 @@
 
 [Neutrino](https://neutrino.js.org) middlewares set for a quick Neutrino presets bootstrapping
 
-All middlewares are designed to work with each other without conflicts. Some of them provide options for configuration without a chance to break something
+All middlewares are designed to work with each other without conflicts. Some of them provide options for customization with safety to not break anything
 
 ## Middlewares
 
