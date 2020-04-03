@@ -20,4 +20,3 @@ All middlewares are designed to work with each other without conflicts. Some of 
 * [`@constgen/neutrino-revision`](./packages/revision)
 * [`@constgen/neutrino-static-files`](./packages/static-files)
 * [`@constgen/neutrino-svg-loader`](./packages/svg-loader)
-
