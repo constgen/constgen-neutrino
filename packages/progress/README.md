@@ -1,5 +1,8 @@
 # @constgen/neutrino-progress
 
+[![npm](https://img.shields.io/npm/v/@constgen/neutrino-progress.svg)](https://www.npmjs.com/package/@constgen/neutrino-progress)
+[![npm](https://img.shields.io/npm/dt/@constgen/neutrino-progress.svg)](https://www.npmjs.com/package/@constgen/neutrino-progress)
+
 [Neutrino](https://neutrino.js.org) middleware that adds a developer-friendly building progress bar
 
 ## Requirements

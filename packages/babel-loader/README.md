@@ -1,5 +1,8 @@
 # @constgen/neutrino-babel-loader
 
+[![npm](https://img.shields.io/npm/v/@constgen/neutrino-babel-loader.svg)](https://www.npmjs.com/package/@constgen/neutrino-babel-loader)
+[![npm](https://img.shields.io/npm/dt/@constgen/neutrino-babel-loader.svg)](https://www.npmjs.com/package/@constgen/neutrino-babel-loader)
+
 [Neutrino](https://neutrino.js.org) middleware for enabling the ESNext transpilation. 
 
 This middleware is recommended for pure JavaScript projects. For projects with proprietary format it is recommended to use specialized middleware. E.g. for React use [`@constgen/neutrino-react-loader`](https://github.com/constgen/constgen-neutrino/packages/react-loader)

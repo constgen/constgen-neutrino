@@ -1,5 +1,8 @@
 # @constgen/neutrino-static-files
 
+[![npm](https://img.shields.io/npm/v/@constgen/neutrino-static-files.svg)](https://www.npmjs.com/package/@constgen/neutrino-static-files)
+[![npm](https://img.shields.io/npm/dt/@constgen/neutrino-static-files.svg)](https://www.npmjs.com/package/@constgen/neutrino-static-files)
+
 [Neutrino](https://neutrino.js.org) middleware that automatically copies `src/static` to the bundle
 
 ## Requirements

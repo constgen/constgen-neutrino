@@ -1,5 +1,8 @@
 # @constgen/neutrino-revision
 
+[![npm](https://img.shields.io/npm/v/@constgen/neutrino-revision.svg)](https://www.npmjs.com/package/@constgen/neutrino-revision)
+[![npm](https://img.shields.io/npm/dt/@constgen/neutrino-revision.svg)](https://www.npmjs.com/package/@constgen/neutrino-revision)
+
 [Neutrino](https://neutrino.js.org) middleware that exposes Git revision information through environment variables: VERSION, COMMITHASH, BRANCH
 
 ## Requirements

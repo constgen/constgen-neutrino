@@ -1,5 +1,8 @@
 # @constgen/neutrino-image-loader
 
+[![npm](https://img.shields.io/npm/v/@constgen/neutrino-image-loader.svg)](https://www.npmjs.com/package/@constgen/neutrino-image-loader)
+[![npm](https://img.shields.io/npm/dt/@constgen/neutrino-image-loader.svg)](https://www.npmjs.com/package/@constgen/neutrino-image-loader)
+
 [Neutrino](https://neutrino.js.org) middleware for image files
 
 ## Requirements

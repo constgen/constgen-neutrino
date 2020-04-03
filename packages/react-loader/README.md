@@ -1,5 +1,8 @@
 # @constgen/neutrino-react-loader
 
+[![npm](https://img.shields.io/npm/v/@constgen/neutrino-react-loader.svg)](https://www.npmjs.com/package/@constgen/neutrino-react-loader)
+[![npm](https://img.shields.io/npm/dt/@constgen/neutrino-react-loader.svg)](https://www.npmjs.com/package/@constgen/neutrino-react-loader)
+
 [Neutrino](https://neutrino.js.org) middleware for React files
 
 This middleware already includes [`@constgen/neutrino-babel-loader`](https://github.com/constgen/constgen-neutrino/packages/babel-loader)

@@ -1,5 +1,8 @@
 # @constgen/neutrino-mdx-loader
 
+[![npm](https://img.shields.io/npm/v/@constgen/neutrino-mdx-loader.svg)](https://www.npmjs.com/package/@constgen/neutrino-mdx-loader)
+[![npm](https://img.shields.io/npm/dt/@constgen/neutrino-mdx-loader.svg)](https://www.npmjs.com/package/@constgen/neutrino-mdx-loader)
+
 [Neutrino](https://neutrino.js.org) middleware for MDX files in React apps
 
 ## Requirements

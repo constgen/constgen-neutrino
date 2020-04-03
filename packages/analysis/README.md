@@ -1,5 +1,8 @@
 # @constgen/neutrino-analysis
 
+[![npm](https://img.shields.io/npm/v/@constgen/neutrino-analysis.svg)](https://www.npmjs.com/package/@constgen/neutrino-analysis)
+[![npm](https://img.shields.io/npm/dt/@constgen/neutrino-analysis.svg)](https://www.npmjs.com/package/@constgen/neutrino-analysis)
+
 [Neutrino](https://neutrino.js.org) middleware that adds bundle analysis tools
 
 ## Requirements

@@ -1,5 +1,8 @@
 # @constgen/neutrino-react-launcher
 
+[![npm](https://img.shields.io/npm/v/@constgen/neutrino-react-launcher.svg)](https://www.npmjs.com/package/@constgen/neutrino-react-launcher)
+[![npm](https://img.shields.io/npm/dt/@constgen/neutrino-react-launcher.svg)](https://www.npmjs.com/package/@constgen/neutrino-react-launcher)
+
 [Neutrino](https://neutrino.js.org) middleware for React files
 
 Using this middleware your entry point should only export the main application component

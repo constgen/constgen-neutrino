@@ -1,5 +1,8 @@
 # @constgen/neutrino-env
 
+[![npm](https://img.shields.io/npm/v/@constgen/neutrino-env.svg)](https://www.npmjs.com/package/@constgen/neutrino-env)
+[![npm](https://img.shields.io/npm/dt/@constgen/neutrino-env.svg)](https://www.npmjs.com/package/@constgen/neutrino-env)
+
 [Neutrino](https://neutrino.js.org) middleware that exposes an access to all environment variables (`process.env`) during the build time
 
 ## Requirements
