@@ -7,19 +7,26 @@ module.exports = function (customSettings = {}) {
 		let prodMode = neutrino.config.get('mode') !== 'development'
 		let urlLoader = require.resolve('url-loader')
 		let defaultSettings = {
-			limit: 10000,
-			outputhPath: prodMode ? 'images' : undefined,
-			name: prodMode ? '[name].[hash:8].[ext]' : '[path][name].[ext]'
+			limit: 10000
 		}
+		let outputhPath = prodMode ? 'images' : undefined
+		let name = prodMode ? '[name].[hash:8].[ext]' : '[path][name].[ext]'
 		let settings = deepmerge(defaultSettings, customSettings)
 
 		neutrino.config
 			.module
+				.rules
+					.delete('image')
+					.end()
 				.rule('image')
 					.test(IMAGE_EXTENSIONS)
 					.use('url')
 						.loader(urlLoader)
-						.options(settings)
+						.options({
+							limit: settings.limit,
+							outputhPath,
+							name
+						})
 						.end()
 					.end()
 				.end()

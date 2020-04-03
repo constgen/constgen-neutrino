@@ -1,11 +1,21 @@
 let WebpackBar = require('webpackbar')
 
-module.exports = function (settings = {}) {
+module.exports = function (customSettings = {}) {
 	return function (neutrino) {
 		let prodMode = neutrino.config.get('mode') !== 'development'
-		let name = settings.name || process.title
+		let { name, version } = neutrino.options.packageJson
+		let defaultSettings = {
+			name: `${name} ${version}`,
+			color: 'green'
+		}
+		let settings = Object.assign({}, defaultSettings, customSettings)
 
 		neutrino.config
+			.devServer
+				.merge({
+					progress: false
+				})
+				.end()
 			.stats({
 				children: false,
 				entrypoints: false,
@@ -22,8 +32,8 @@ module.exports = function (settings = {}) {
 			})
 			.plugin('progress')
 				.use(WebpackBar, [{
-					name,
-					color: 'green',
+					name: settings.name,
+					color: settings.color,
 					profile: false
 
 					// fancy: true // true when not in CI or testing mode

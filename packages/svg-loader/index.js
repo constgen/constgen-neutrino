@@ -1,4 +1,4 @@
-// let { IMAGE_EXTENSIONS } = require('../image-loader')
+// let { IMAGE_EXTENSIONS } = require('@constgen/neutrino-image-loader')
 
 module.exports = function () {
 	return function (neutrino) {

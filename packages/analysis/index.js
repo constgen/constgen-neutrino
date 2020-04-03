@@ -12,7 +12,7 @@ module.exports = function (customSettings = {}) {
 		let settings = deepmerge(defaultSettings, customSettings)
 
 		neutrino.config
-			.when(settings.bundleAnalyzer, function () {
+			.when(settings.circularDependency, function () {
 				neutrino.use(dependency())
 			})
 			.when(settings.bundleAnalyzer, function (config) {

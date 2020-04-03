@@ -1,6 +1,6 @@
 {
 	"name": "@constgen/neutrino-react-launcher",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"description": "Neutrino middleware for an automatic React application launching in a browser document with hot reload",
 	"main": "index.js",
 	"author": "Constantine Genchevsky <const.gen@gmail.com>",
@@ -33,7 +33,7 @@
 		"package.json"
 	],
 	"engines": {
-		"node": ">=12",
+		"node": ">=10",
 		"npm": ">=5.4.0"
 	}
 }

@@ -10,7 +10,7 @@ module.exports = function (customSettings = {}) {
 			test: [],
 			polyfills: false,
 			targets: { },
-			include: [neutrino.options.source, neutrino.options.tests],
+			include: [],
 			exclude: []
 		}
 		let settings = deepmerge(defaultSettings, customSettings)
@@ -31,7 +31,7 @@ module.exports = function (customSettings = {}) {
 		neutrino.use(
 			compileLoader({
 				test: [neutrino.regexFromExtensions()].concat(settings.test),
-				include: settings.include,
+				include: [neutrino.options.source, neutrino.options.tests].concat(settings.include),
 				exclude: settings.exclude,
 				babel: babelMerge(
 					{

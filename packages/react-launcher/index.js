@@ -11,7 +11,13 @@ module.exports = function (customSettings = {}) {
 		}
 		let settings = deepmerge(defaultSettings, customSettings)
 
+
 		neutrino.config
+			.devServer
+				.merge({
+					clientLogLevel: 'silent'
+				})
+				.end()
 			.resolve
 				.alias
 					.set('react', path.resolve(path.join(projectNodeModulesPath, 'react')))

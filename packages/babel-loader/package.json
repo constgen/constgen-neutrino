@@ -1,7 +1,7 @@
 {
 	"name": "@constgen/neutrino-babel-loader",
-	"version": "0.1.0",
-	"description": "Neutrino middleware for enabling the ESNext traspilation",
+	"version": "1.0.0",
+	"description": "Neutrino middleware for enabling the ESNext transpilation",
 	"main": "index.js",
 	"author": "Constantine Genchevsky <const.gen@gmail.com>",
 	"license": "GPL-3.0",
@@ -40,7 +40,7 @@
 		"package.json"
 	],
 	"engines": {
-		"node": ">=12",
+		"node": ">=10",
 		"npm": ">=5.4.0"
 	}
 }
