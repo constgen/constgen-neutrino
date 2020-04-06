@@ -9,7 +9,7 @@ module.exports = function (customSettings = {}) {
 		let defaultSettings = {
 			limit: 10000
 		}
-		let outputhPath = prodMode ? 'images' : undefined
+		let outputPath = prodMode ? 'images' : undefined
 		let name = prodMode ? '[name].[hash:8].[ext]' : '[path][name].[ext]'
 		let settings = deepmerge(defaultSettings, customSettings)
 
@@ -24,7 +24,7 @@ module.exports = function (customSettings = {}) {
 						.loader(urlLoader)
 						.options({
 							limit: settings.limit,
-							outputhPath,
+							outputPath,
 							name
 						})
 						.end()
