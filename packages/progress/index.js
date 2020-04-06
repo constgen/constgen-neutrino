@@ -49,13 +49,13 @@ module.exports = function (customSettings = {}) {
 						// Called when (re)compile is started
 						start () {
 							if (settings.clean) clear()
-						},
+						}
 
 						// Called when a file changed on watch mode
-						change () {},
+						// change () {},
 
 						// Called when compile finished
-						done () {}
+						// done () {}
 					}
 
 					// fancy: true // true when not in CI or testing mode

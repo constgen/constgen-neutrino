@@ -1,0 +1,38 @@
+{
+	"name": "@constgen/neutrino-react-scoped-styles",
+	"version": "1.0.0",
+	"description": "Neutrino middleware for isolation of React components styles",
+	"main": "index.js",
+	"author": "Constantine Genchevsky <const.gen@gmail.com>",
+	"license": "GPL-3.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/constgen/constgen-neutrino.git"
+	},
+	"homepage": "https://github.com/constgen/constgen-neutrino/packages/react-scoped-styles",
+	"keywords": [
+		"neutrino",
+		"neutrino-middlware",
+		"middlware",
+		"preset",
+		"webpack",
+		"react",
+		"scoped",
+		"styles"
+	],
+	"dependencies": {
+		"css-tree": "1.0.0-alpha.39"
+	},
+	"peerDependencies": {
+		"neutrino": "^9.0.0"
+	},
+	"files": [
+		"**/*.js",
+		"README.md",
+		"package.json"
+	],
+	"engines": {
+		"node": ">=10",
+		"npm": ">=5.4.0"
+	}
+}
