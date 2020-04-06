@@ -1,6 +1,6 @@
 {
 	"name": "@constgen/neutrino",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"private": true,
 	"description": "Neutrino middlewares for a quick project preset building",
 	"author": "Constantine Genchevsky <const.gen@gmail.com>",
@@ -22,7 +22,7 @@
 	},
 	"dependencies": {
 		"react": "^16.10.0",
-    	"react-dom": "^16.10.0",
+		"react-dom": "^16.10.0",
 		"webpack": "^4.0.0"
 	},
 	"devDependencies": {
