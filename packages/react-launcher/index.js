@@ -11,7 +11,6 @@ module.exports = function (customSettings = {}) {
 		}
 		let settings = deepmerge(defaultSettings, customSettings)
 
-
 		neutrino.config
 			.devServer
 				.merge({

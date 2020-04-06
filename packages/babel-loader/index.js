@@ -38,9 +38,12 @@ module.exports = function (customSettings = {}) {
 						plugins: [
 							require.resolve('@babel/plugin-syntax-dynamic-import'),
 							[require.resolve('@babel/plugin-proposal-decorators'), {
-								decoratorsBeforeExport: true
+								// decoratorsBeforeExport: true,
+								legacy: true
 							}],
-							require.resolve('@babel/plugin-proposal-class-properties'),
+							[require.resolve('@babel/plugin-proposal-class-properties'), {
+								loose: true
+							}],
 							require.resolve('babel-plugin-smart-webpack-import')
 						],
 						presets: [
