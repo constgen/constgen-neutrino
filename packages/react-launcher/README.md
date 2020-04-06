@@ -27,9 +27,9 @@ export default class extends React.Component {
 
 ## Requirements
 
-* Node.js v10+
-* Neutrino v9
-* React v16
+- Node.js v10+
+- Neutrino v9
+- React v16
 
 ## Installation
 

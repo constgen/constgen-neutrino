@@ -9,8 +9,8 @@ You may want to use [`@constgen/neutrino-analysis`](https://github.com/constgen/
 
 ## Requirements
 
-* Node.js v10+
-* Neutrino v9
+- Node.js v10+
+- Neutrino v9
 
 ## Installation
 

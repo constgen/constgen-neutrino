@@ -1,4 +1,5 @@
 let WebpackBar = require('webpackbar')
+let clear = require('console-clear')
 
 module.exports = function (customSettings = {}) {
 	return function (neutrino) {
@@ -6,15 +7,23 @@ module.exports = function (customSettings = {}) {
 		let { name, version } = neutrino.options.packageJson
 		let defaultSettings = {
 			name: `${name} ${version}`,
-			color: 'green'
+			color: 'green',
+			clean: true
 		}
 		let settings = Object.assign({}, defaultSettings, customSettings)
 
 		neutrino.config
 			.devServer
-				.merge({
-					progress: false
+				.progress(false)
+				.stats({
+					all: false,
+					errors: true,
+					warnings: true
 				})
+
+				// .set('onListening', function (server) {
+				// 	let { port, address } = server.listeningApp.address()
+				// })
 				.end()
 			.stats({
 				children: false,
@@ -28,13 +37,26 @@ module.exports = function (customSettings = {}) {
 				assetsSort: 'chunks',
 				env: true,
 				builtAt: prodMode,
-				timings: prodMode
+				timings: prodMode,
+				excludeAssets: [/\.map$/]
 			})
 			.plugin('progress')
 				.use(WebpackBar, [{
 					name: settings.name,
 					color: settings.color,
-					profile: false
+					profile: false,
+					reporter: {
+						// Called when (re)compile is started
+						start () {
+							if (settings.clean) clear()
+						},
+
+						// Called when a file changed on watch mode
+						change () {},
+
+						// Called when compile finished
+						done () {}
+					}
 
 					// fancy: true // true when not in CI or testing mode
 					// basic: true // true when running in minimal environments.

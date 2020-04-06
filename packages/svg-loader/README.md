@@ -3,12 +3,12 @@
 [![npm](https://img.shields.io/npm/v/@constgen/neutrino-svg-loader.svg)](https://www.npmjs.com/package/@constgen/neutrino-svg-loader)
 [![npm](https://img.shields.io/npm/dt/@constgen/neutrino-svg-loader.svg)](https://www.npmjs.com/package/@constgen/neutrino-svg-loader)
 
-[Neutrino](https://neutrino.js.org) middleware for SVG files. SVG files are compiled to Data URIs **without** encoding to Base64.
+[Neutrino](https://neutrino.js.org) middleware for SVG files. SVG files are compiled to Data URIs **without*- encoding to Base64.
 
 ## Requirements
 
-* Node.js v10+
-* Neutrino v9
+- Node.js v10+
+- Neutrino v9
 
 ## Installation
 

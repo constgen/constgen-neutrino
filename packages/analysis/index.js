@@ -10,6 +10,7 @@ module.exports = function (customSettings = {}) {
 			bundleAnalyzer: true
 		}
 		let settings = deepmerge(defaultSettings, customSettings)
+		let port = Number(neutrino.config.devServer.get('port'))
 
 		neutrino.config
 			.when(settings.circularDependency, function () {
@@ -19,7 +20,7 @@ module.exports = function (customSettings = {}) {
 				config.plugin('bundle-analyzer').use(BundleAnalyzerPlugin, [{
 					analyzerMode: prodMode ? 'static' : 'server',
 					analyzerHost: 'localhost',
-					analyzerPort: 'auto',
+					analyzerPort: port ? (port + 1) : 'auto',
 					reportFilename: 'bundle-report.html',
 					defaultSizes: 'parsed',
 					openAnalyzer: false,

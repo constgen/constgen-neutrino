@@ -20,8 +20,8 @@ This middleware enables many features by default with zero configuration
 
 ## Requirements
 
-* Node.js v10+
-* Neutrino v9
+- Node.js v10+
+- Neutrino v9
 
 ## Installation
 

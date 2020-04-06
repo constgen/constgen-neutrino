@@ -5,10 +5,15 @@
 
 [Neutrino](https://neutrino.js.org) middleware that adds a developer-friendly building progress bar
 
+## Features
+
+- Minimalistic output during development
+- Hide source maps from the Assets table
+
 ## Requirements
 
-* Node.js v10+
-* Neutrino v9
+- Node.js v10+
+- Neutrino v9
 
 ## Installation
 

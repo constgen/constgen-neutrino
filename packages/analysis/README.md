@@ -7,8 +7,8 @@
 
 ## Requirements
 
-* Node.js v10+
-* Neutrino v9
+- Node.js v10+
+- Neutrino v9
 
 ## Installation
 
