@@ -30,7 +30,7 @@
 		"webpack": "^4.0.0"
 	},
 	"files": [
-		"*.js",
+		"**/*.js",
 		"README.md",
 		"package.json"
 	],

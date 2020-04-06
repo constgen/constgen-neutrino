@@ -30,7 +30,7 @@
 		"neutrino": "^9.0.0"
 	},
 	"files": [
-		"*.js",
+		"**/*.js",
 		"README.md",
 		"package.json"
 	],
