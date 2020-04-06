@@ -4,8 +4,6 @@
 
 [Neutrino](https://neutrino.js.org) middlewares set for a quick Neutrino presets bootstrapping
 
-All middlewares are designed to work with each other without conflicts. Some of them provide options for customization with safety to not break anything
-
 ## Middlewares
 
 - [`@constgen/neutrino-analysis`](./packages/analysis)
@@ -23,3 +21,5 @@ All middlewares are designed to work with each other without conflicts. Some of 
 - [`@constgen/neutrino-sourcemap`](./packages/sourcemap)
 - [`@constgen/neutrino-static-files`](./packages/static-files)
 - [`@constgen/neutrino-svg-loader`](./packages/svg-loader)
+
+All middlewares can be combined together and with [Neutrino core middlewares and presets](https://github.com/neutrinojs/neutrino/tree/master/packages) . They are designed to work with each other without conflicts. Some of them provide safe options for customization to not break anything.
