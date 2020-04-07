@@ -21,9 +21,9 @@
 		"lint": "npm run eslint -- --fix"
 	},
 	"dependencies": {
-		"react": "^16.10.0",
-		"react-dom": "^16.10.0",
-		"webpack": "^4.0.0"
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1",
+		"webpack": "^4.42.1"
 	},
 	"devDependencies": {
 		"@constgen/eslint": "1.1.0",
