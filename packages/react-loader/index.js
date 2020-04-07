@@ -9,7 +9,7 @@ module.exports = function (customSettings = {}) {
 		let defaultSettings = {
 			babel: {},
 			polyfills: false,
-			browsers: customSettings.browsers ? [] : [
+			browsers: customSettings.browsers ? undefined : [
 				'last 2 Chrome major versions',
 				'last 2 Firefox major versions',
 				'last 2 Edge major versions',
@@ -29,9 +29,7 @@ module.exports = function (customSettings = {}) {
 				include: settings.include,
 				exclude: settings.exclude,
 				polyfills: settings.polyfills,
-				targets: {
-					browsers: settings.browsers
-				},
+				targets: settings.browsers ? { browsers: settings.browsers } : {},
 				babel: babelMerge(
 					{
 						plugins: [
