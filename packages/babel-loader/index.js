@@ -56,6 +56,7 @@ module.exports = function (customSettings = {}) {
 									spec: false,
 									modules: testEnv ? 'auto' : false,
 									useBuiltIns: settings.polyfills ? 'usage' : false,
+									bugfixes: true,
 									...(settings.polyfills && { corejs })
 								}
 							],
@@ -64,7 +65,7 @@ module.exports = function (customSettings = {}) {
 							}]
 						],
 						ignore: [
-							/\/core-js/
+							'**/node_modules/core-js/**'
 						],
 						sourceType: 'unambiguous',
 						cacheDirectory: true,
