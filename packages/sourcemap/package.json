@@ -1,6 +1,6 @@
 {
 	"name": "@constgen/neutrino-sourcemap",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"description": "Neutrino middleware to configure source maps in JS and CSS",
 	"main": "index.js",
 	"author": "Constantine Genchevsky <const.gen@gmail.com>",
@@ -19,7 +19,7 @@
 		"sourcemap"
 	],
 	"dependencies": {
-		"smart-source-map-loader": "1.1.0"
+		"smart-source-map-loader": "1.1.1"
 	},
 	"peerDependencies": {
 		"neutrino": "^9.0.0"

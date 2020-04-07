@@ -23,6 +23,7 @@ module.exports = function (customSettings = {}) {
 
 				// .set('onListening', function (server) {
 				// 	let { port, address } = server.listeningApp.address()
+				// 	console.info('Development server running at http://localhost:3000')
 				// })
 				.end()
 			.stats({

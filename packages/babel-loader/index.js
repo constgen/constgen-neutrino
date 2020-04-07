@@ -5,16 +5,17 @@ let { shouldPrintComment } = require('babel-plugin-smart-webpack-import')
 
 module.exports = function (customSettings = {}) {
 	return function (neutrino) {
+		const DEFAULT_COREJS = 3
+		let testEnv = process.env.NODE_ENV === 'test'
 		let defaultSettings = {
 			babel: {},
 			test: [],
 			polyfills: false,
-			targets: { },
+			targets: {},
 			include: [],
 			exclude: []
 		}
 		let settings = deepmerge(defaultSettings, customSettings)
-		const DEFAULT_COREJS = 3
 		let coreJsVersion = neutrino.getDependencyVersion('core-js')
 		let corejs = coreJsVersion ? coreJsVersion.major : DEFAULT_COREJS
 
@@ -53,7 +54,7 @@ module.exports = function (customSettings = {}) {
 									debug: neutrino.options.debug,
 									targets: settings.targets,
 									spec: false,
-									modules: false,
+									modules: testEnv ? 'auto' : false,
 									useBuiltIns: settings.polyfills ? 'usage' : false,
 									...(settings.polyfills && { corejs })
 								}
@@ -61,6 +62,9 @@ module.exports = function (customSettings = {}) {
 							[require.resolve('@babel/preset-typescript'), {
 								allowNamespaces: true
 							}]
+						],
+						ignore: [
+							/\/core-js/
 						],
 						sourceType: 'unambiguous',
 						cacheDirectory: true,
