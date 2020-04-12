@@ -13,6 +13,7 @@
 - [`@constgen/neutrino-image-loader`](./packages/image-loader)
 - [`@constgen/neutrino-mdx-loader`](./packages/mdx-loader)
 - [`@constgen/neutrino-mode`](./packages/mode)
+- [`@constgen/neutrino-optimization`](./packages/optimization)
 - [`@constgen/neutrino-progress`](./packages/progress)
 - [`@constgen/neutrino-react-launcher`](./packages/react-launcher)
 - [`@constgen/neutrino-react-loader`](./packages/react-loader)

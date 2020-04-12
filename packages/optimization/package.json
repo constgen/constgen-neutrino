@@ -1,0 +1,37 @@
+{
+	"name": "@constgen/neutrino-optimization",
+	"version": "1.3.0",
+	"description": "Neutrino middleware to configure optimization and minification for production builds",
+	"main": "index.js",
+	"author": "Constantine Genchevsky <const.gen@gmail.com>",
+	"license": "GPL-3.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/constgen/constgen-neutrino.git"
+	},
+	"homepage": "https://github.com/constgen/constgen-neutrino/packages/optimization",
+	"keywords": [
+		"neutrino",
+		"neutrino-middlware",
+		"middlware",
+		"preset",
+		"webpack",
+		"optimization",
+		"minification"
+	],
+	"dependencies": {
+		"deepmerge": "4.2.2"
+	},
+	"peerDependencies": {
+		"neutrino": "^9.0.0"
+	},
+	"files": [
+		"**/*.js",
+		"README.md",
+		"package.json"
+	],
+	"engines": {
+		"node": ">=10",
+		"npm": ">=5.4.0"
+	}
+}
