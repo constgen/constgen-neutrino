@@ -43,8 +43,10 @@ module.exports = function (customSettings = {}) {
 								attrs: ['img:src', 'link:href', 'Image:src', 'video:src', 'Video:src', 'audio:src', 'Audio:src']
 							}],
 							prodMode && [require.resolve('babel-plugin-transform-react-remove-prop-types'), {
+								mode: 'remove',
 								removeImport: true,
-								classNameMatchers: ['Component', 'PureComponent']
+								classNameMatchers: ['Component', 'PureComponent'],
+								additionalLibraries: ['react-immutable-proptypes']
 							}]
 						].filter(Boolean),
 						presets: [
