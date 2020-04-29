@@ -3,7 +3,7 @@
 [![npm](https://img.shields.io/npm/v/@constgen/neutrino-svg-loader.svg)](https://www.npmjs.com/package/@constgen/neutrino-svg-loader)
 [![npm](https://img.shields.io/npm/dt/@constgen/neutrino-svg-loader.svg)](https://www.npmjs.com/package/@constgen/neutrino-svg-loader)
 
-[Neutrino](https://neutrino.js.org) middleware for SVG files. SVG files are compiled to Data URIs **without*- encoding to Base64.
+[Neutrino](https://neutrino.js.org) middleware for SVG files. SVG files are compiled to Data URIs **without*- encoding to Base64. For JSX components SVG elements ids are extended with unique prefixes to avoid collisions between inlined `<svg>` images.
 
 ## Requirements
 
