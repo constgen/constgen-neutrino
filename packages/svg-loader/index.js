@@ -5,8 +5,10 @@ module.exports = function () {
 		const CSS_EXTENSIONS = /\.(css|less|sass|scss|pcss)$/i
 		const SVG_EXTENSIONS = /\.svg(\?v=\d+\.\d+\.\d+)?$/i
 		let svgUrlLoader = require.resolve('svg-url-loader')
+		let svgInlineLoader = require.resolve('svg-inline-loader')
+		let extractLoader = require.resolve('extract-loader')
 		let prodMode = neutrino.config.get('mode') !== 'development'
-		let outputhPath = prodMode ? 'images' : undefined
+		let outputPath = prodMode ? 'images' : undefined
 		let name = prodMode ? '[name].[hash:8].[ext]' : '[path][name].[ext]'
 
 		neutrino.config.module
@@ -20,21 +22,39 @@ module.exports = function () {
 				.test(SVG_EXTENSIONS)
 				.oneOf('style')
 					.set('issuer', CSS_EXTENSIONS)
-					.use('svg-css')
+					.use('url-svg')
 						.loader(svgUrlLoader)
 						.options({
-							outputhPath,
+							outputPath,
 							name,
-							limit: 10000,
+							limit: 1,
 							noquotes: false,
 							stripdeclarations: true
 						})
 						.end()
 					.end()
 				.oneOf('text')
-					.use('svg-text')
+					.use('data-url-svg')
 						.loader(svgUrlLoader)
-						.options({ noquotes: true })
+						.options({
+							noquotes: true,
+							stripdeclarations: true
+						 })
+						.end()
+					.use('raw-svg')
+						.loader(extractLoader)
+						.end()
+					.use('text-svg')
+						.loader(svgInlineLoader)
+						.options({
+							removeTags: false,
+							warnTags: [],
+							removeSVGTagAttrs: false,
+							removingTagAttrs: [],
+							warnTagAttrs: [],
+							classPrefix: false,
+							idPrefix: true
+						 })
 						.end()
 					.end()
 				.end()

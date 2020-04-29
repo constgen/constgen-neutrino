@@ -41,7 +41,7 @@ module.exports = function (customSettings = {}) {
 					.end()
 				.resolve.alias
 					.set('__entry__', path.resolve(__dirname, settings.entries[key].entry))
-					.end()
+					.end().end()
 		})
 	}
 }
