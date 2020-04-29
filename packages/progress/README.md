@@ -8,7 +8,9 @@
 ## Features
 
 - Minimalistic output during development
+- Only useful information on production
 - Hide source maps from the Assets table
+- Sort Assets table
 
 ## Requirements
 
