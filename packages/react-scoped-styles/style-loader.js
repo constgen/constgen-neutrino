@@ -14,6 +14,7 @@ module.exports = function styleLoader (source, sourceMap) {
 		positions: true
 	})
 	let callback = this.async()
+	let whenSourceMapConsumerReady = sourceMap ? new SourceMapConsumer(sourceMap) : Promise.resolve()
 
 	this.cacheable && this.cacheable(true)
 	csstree.walk(ast, {
@@ -26,7 +27,7 @@ module.exports = function styleLoader (source, sourceMap) {
 		}
 	})
 
-	new SourceMapConsumer(sourceMap)
+	whenSourceMapConsumerReady
 		.then(mapConsumer => {
 			let result = csstree.generate(ast, {
 				sourceMap: this.sourceMap // if true, returns object instead of string
@@ -37,10 +38,17 @@ module.exports = function styleLoader (source, sourceMap) {
 			if (typeof result === 'object') {
 				css = result.css
 				map = result.map
-				map.applySourceMap(mapConsumer, toUnixPath(filename))
+				if (mapConsumer) {
+					map.applySourceMap(mapConsumer, toUnixPath(filename))
+				}
 				map = map.toJSON()
+				if (!mapConsumer) {
+					map.sourcesContent = [source]
+				}
 			}
-			mapConsumer.destroy()
+			if (mapConsumer) {
+				mapConsumer.destroy()
+			}
 			return { css, map }
 		})
 		.then(({ css, map }) => callback(null, css, map))
