@@ -17,7 +17,7 @@
 - [`@constgen/neutrino-progress`](./packages/progress)
 - [`@constgen/neutrino-react-launcher`](./packages/react-launcher)
 - [`@constgen/neutrino-react-loader`](./packages/react-loader)
-- [`@constgen/neutrino-react-react-scoped-styles`](./packages/react-react-scoped-styles)
+- [`@constgen/neutrino-react-scoped-styles`](./packages/react-scoped-styles)
 - [`@constgen/neutrino-revision`](./packages/revision)
 - [`@constgen/neutrino-sourcemap`](./packages/sourcemap)
 - [`@constgen/neutrino-static-files`](./packages/static-files)
