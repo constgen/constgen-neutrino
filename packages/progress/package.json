@@ -1,6 +1,6 @@
 {
 	"name": "@constgen/neutrino-progress",
-	"version": "1.4.0",
+	"version": "1.5.0",
 	"description": "Neutrino middleware showing a progressbar during the compilation",
 	"main": "index.js",
 	"author": "Constantine Genchevsky <const.gen@gmail.com>",
