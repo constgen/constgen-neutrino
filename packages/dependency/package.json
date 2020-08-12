@@ -1,6 +1,6 @@
 {
 	"name": "@constgen/neutrino-dependency",
-	"version": "1.0.0",
+	"version": "1.5.0",
 	"description": "Neutrino middleware for detection of circular dependencies",
 	"main": "index.js",
 	"author": "Constantine Genchevsky <const.gen@gmail.com>",
@@ -20,7 +20,8 @@
 		"dependency"
 	],
 	"dependencies": {
-		"circular-dependency-plugin": "5.2.0"
+		"circular-dependency-plugin": "5.2.0",
+		"duplicate-package-checker-webpack-plugin": "3.0.0"
 	},
 	"peerDependencies": {
 		"neutrino": "^9.0.0"

@@ -6,14 +6,14 @@ module.exports = function (customSettings = {}) {
 	return function (neutrino) {
 		let prodMode = neutrino.config.get('mode') !== 'development'
 		let defaultSettings = {
-			circularDependency: true,
+			dependencies: true,
 			bundleAnalyzer: true
 		}
 		let settings = deepmerge(defaultSettings, customSettings)
 		let port = Number(neutrino.config.devServer.get('port'))
 
 		neutrino.config
-			.when(settings.circularDependency, function () {
+			.when(settings.dependencies, function () {
 				neutrino.use(dependency())
 			})
 			.when(settings.bundleAnalyzer, function (config) {

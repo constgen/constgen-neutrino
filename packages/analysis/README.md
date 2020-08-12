@@ -28,7 +28,7 @@ Require this package and plug it into Neutrino. The following shows how you can 
 let analysis = require('@constgen/neutrino-analysis')
 
 neutrino.use(analysis({
-   circularDependency: true, // report in the terminal about circular dependncies
+   dependencies: true, // report in the terminal about circular or duplicated dependncies
    bundleAnalyzer: true // enable BundleAnalyzerPlugin
 }))
 ```

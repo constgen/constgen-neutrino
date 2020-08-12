@@ -3,9 +3,14 @@
 [![npm](https://img.shields.io/npm/v/@constgen/neutrino-dependency.svg)](https://www.npmjs.com/package/@constgen/neutrino-dependency)
 [![npm](https://img.shields.io/npm/dt/@constgen/neutrino-dependency.svg)](https://www.npmjs.com/package/@constgen/neutrino-dependency)
 
-[Neutrino](https://neutrino.js.org) middleware for detection and warning about circular dependencies during the build time
+[Neutrino](https://neutrino.js.org) middleware for detection and warning about dependencies issues
 
 You may want to use [`@constgen/neutrino-analysis`](https://github.com/constgen/constgen-neutrino/packages/analysis) that already includes this middleware
+
+## Features
+
+- Detect and warn about circular dependencies during the build time
+- Detect and warn about duplicated dependencies during the build time
 
 ## Requirements
 
