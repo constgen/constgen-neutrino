@@ -5,6 +5,14 @@
 
 [Neutrino](https://neutrino.js.org) middleware that automatically enables necessary source maps in development and production
 
+## Features
+
+- JS source maps
+- CSS source maps
+- NodeJS optimized source maps automatically enabled
+- Chrome DevTools Workspace integration
+- Consider external dependencies sourcemaps for better debugging during development
+
 ## Requirements
 
 - Node.js v10+
