@@ -5,6 +5,16 @@
 
 [Neutrino](https://neutrino.js.org) middleware that automatically enables necessary source maps in development and production
 
+## Features
+
+- Human-readable chunk names
+- Vendor modules chunks
+- Dynamic imports chunks
+- Shared modules chunks
+- Max size chunks splitting
+- JS minification
+- CSS minification
+
 ## Requirements
 
 - Node.js v10+
