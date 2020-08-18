@@ -12,15 +12,7 @@ module.exports = function (customSettings = {}) {
 		let defaultSettings = {
 			babel: {},
 			polyfills: false,
-			browsers: customSettings.browsers ? undefined : [
-				'last 2 Chrome major versions',
-				'last 2 Firefox major versions',
-				'last 2 Edge major versions',
-				'last 2 Opera major versions',
-				'last 2 Safari major versions',
-				'last 2 iOS major versions',
-				'ie 11'
-			],
+			browsers: customSettings.browsers ? undefined : ['defaults'],
 			include: [],
 			exclude: []
 		}
@@ -82,7 +74,7 @@ module.exports = function (customSettings = {}) {
 				.end()
 			.resolve
 				.extensions
-					.merge(['.vue', '.jsx', '.js'])
+					.merge(['.vue', '.js'])
 					.end()
 				.end()
 	}
