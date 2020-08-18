@@ -61,6 +61,8 @@ module.exports = function (customSettings = {}) {
 								}
 							],
 							[require.resolve('@babel/preset-typescript'), {
+								isTSX: false,
+								allExtensions: false,
 								allowNamespaces: true
 							}]
 						],
