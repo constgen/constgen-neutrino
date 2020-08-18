@@ -13,7 +13,6 @@ module.exports = function (customSettings = {}) {
 		let settings = Object.assign({}, defaultSettings, customSettings)
 
 		neutrino.config
-			.name(settings.name)
 			.devServer
 				.progress(false)
 				.stats({
