@@ -20,7 +20,7 @@
 		"hot"
 	],
 	"dependencies": {
-		"chalk": "~3.0.0",
+		"chalk": "~4.1.0",
 		"selfsigned": "~1.10.7",
 		"del": "~5.1.0",
 		"deepmerge": "~4.2.2"

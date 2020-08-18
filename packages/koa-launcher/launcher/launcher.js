@@ -1,4 +1,5 @@
 let http = require(__http__) // eslint-disable-line no-undef
+
 let chalk = require('chalk')
 
 let sslSettings = require('./ssl-settings')
@@ -21,7 +22,7 @@ const HTTPS_PORT = 443
 let defaultPort = sslSettings ? HTTPS_PORT : HTTP_PORT
 let currentApp = requireKoaApp()
 let sockets = new Set()
-const requestsCount = Symbol('requests count')
+let requestsCount = Symbol('requests count')
 
 let server = ((sslSettings && http.createSecureServer) || http.createServer)(sslSettings, currentApp).listen(
 	{ port: process.env.PORT, host: process.env.HOST },
