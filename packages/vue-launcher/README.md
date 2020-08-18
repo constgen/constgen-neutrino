@@ -1,42 +1,42 @@
-# @constgen/neutrino-react-launcher
+# @constgen/neutrino-vue-launcher
 
-[![npm](https://img.shields.io/npm/v/@constgen/neutrino-react-launcher.svg)](https://www.npmjs.com/package/@constgen/neutrino-react-launcher)
-[![npm](https://img.shields.io/npm/dt/@constgen/neutrino-react-launcher.svg)](https://www.npmjs.com/package/@constgen/neutrino-react-launcher)
+[![npm](https://img.shields.io/npm/v/@constgen/neutrino-vue-launcher.svg)](https://www.npmjs.com/package/@constgen/neutrino-vue-launcher)
+[![npm](https://img.shields.io/npm/dt/@constgen/neutrino-vue-launcher.svg)](https://www.npmjs.com/package/@constgen/neutrino-vue-launcher)
 
-[Neutrino](https://neutrino.js.org) middleware for an automatic React application launching in a browser document with hot reload
+[Neutrino](https://neutrino.js.org) middleware for an automatic Vue application launching in a browser document with hot reload
 
-Using this middleware your entry point should only export the main application component
+Using this middleware you no longer need to bootstrap HMR and app mounting. It is done automatically. The only thing you need is to only export the main JSX component in your main application component (entry file)
 
-**index.jsx**
+**src/index.vue**
 
-```jsx
-import React from 'react'
+```vue
+<template>
+   <h1>Root component</h1>
+</template>
 
-export default class extends React.Component {
-   render () {
-      return <h1>Root component</h1>
-   }
-}
+<script>
+export default {}
+</script>
 ```
 
 ## Features
 
 - Enabled Hot Module Replacement with source-watching during development
 - Disabled redundant `[HMR]` console messages
-- Debug console cleared on every file change. Your outdated logs will be removed
 
 ## Requirements
 
 - Node.js v10+
 - Neutrino v9
-- React v16
+- Webpack v4
+- Vue v2
 
 ## Installation
 
-`@constgen/neutrino-react-launcher` can be installed from NPM. You should install it to `"dependencies"` (--save) or `"devDependncies"` (--save-dev) depending on your goal.
+`@constgen/neutrino-vue-launcher` can be installed from NPM. You should install it to `"dependencies"` (--save) or `"devDependncies"` (--save-dev) depending on your goal.
 
 ```bash
-npm install --save @constgen/neutrino-react-launcher
+npm install --save @constgen/neutrino-vue-launcher
 ```
 
 ## Usage
@@ -46,9 +46,9 @@ npm install --save @constgen/neutrino-react-launcher
 Require this package and plug it into Neutrino. The middleware has no options:
 
 ```js
-let reactLauncher = require('@constgen/neutrino-react-launcher')
+let vueLauncher = require('@constgen/neutrino-vue-launcher')
 
-neutrino.use(reactLauncher())
+neutrino.use(vueLauncher())
 ```
 
 ### In **neutrinorc**
@@ -58,11 +58,11 @@ The middleware also may be used together with another presets in Neutrino rc-fil
 **.neutrinorc.js**
 
 ```js
-let reactLauncher = require('@constgen/neutrino-react-launcher')
+let vueLauncher = require('@constgen/neutrino-vue-launcher')
 
 module.exports = {
    use: [
-      reactLauncher()
+      vueLauncher()
    ]
 }
 ```
