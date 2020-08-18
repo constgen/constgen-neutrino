@@ -1,9 +1,9 @@
-# @constgen/neutrino-react-loader
+# @constgen/neutrino-vue-loader
 
-[![npm](https://img.shields.io/npm/v/@constgen/neutrino-react-loader.svg)](https://www.npmjs.com/package/@constgen/neutrino-react-loader)
-[![npm](https://img.shields.io/npm/dt/@constgen/neutrino-react-loader.svg)](https://www.npmjs.com/package/@constgen/neutrino-react-loader)
+[![npm](https://img.shields.io/npm/v/@constgen/neutrino-vue-loader.svg)](https://www.npmjs.com/package/@constgen/neutrino-vue-loader)
+[![npm](https://img.shields.io/npm/dt/@constgen/neutrino-vue-loader.svg)](https://www.npmjs.com/package/@constgen/neutrino-vue-loader)
 
-[Neutrino](https://neutrino.js.org) middleware for React files
+[Neutrino](https://neutrino.js.org) middleware for Vue files
 
 This middleware already includes [`@constgen/neutrino-babel-loader`](https://github.com/constgen/constgen-neutrino/packages/babel-loader)
 
@@ -14,21 +14,22 @@ This middleware enables many features by default with zero configuration
 - Typescript support
 - Decorators
 - Class properties
-- Automatic React runtime inject to every JSX file
-- Resolve URLs in JSX like in HTML for these elements: `img[src]`, `link[href]`, `Image[src]`, `video[src]`, `Video[src]`, `audio[src]`, `Audio[src]`
-- Remove prop types in production
+- Babel transpilation according to browserlist
+- EcmaScript polyfills
+- Automatic Vue pragma injection to every JSX fragment
 
 ## Requirements
 
 - Node.js v10+
 - Neutrino v9
+- Webpack v4
 
 ## Installation
 
-`@constgen/neutrino-react-loader` can be installed from NPM. You should install it to `"dependencies"` (--save) or `"devDependncies"` (--save-dev) depending on your goal.
+`@constgen/neutrino-vue-loader` can be installed from NPM. You should install it to `"dependencies"` (--save) or `"devDependncies"` (--save-dev) depending on your goal.
 
 ```bash
-npm install --save @constgen/neutrino-react-loader
+npm install --save @constgen/neutrino-vue-loader
 ```
 
 ## Usage
@@ -38,22 +39,22 @@ npm install --save @constgen/neutrino-react-loader
 Require this package and plug it into Neutrino. The following shows how you can pass an options object to the middleware, showing the **defaults**:
 
 ```js
-let reactLoader = require('@constgen/neutrino-react-loader')
+let vueLoader = require('@constgen/neutrino-vue-loader')
 
-neutrino.use(reactLoader({
+neutrino.use(vueLoader({
    babel: {}, // custom Babel options
    polyfills: false, // enable EcmaScript polyfills
-   browsers: [
-      'last 2 Chrome major versions',
-      'last 2 Firefox major versions',
-      'last 2 Edge major versions',
-      'last 2 Opera major versions',
-      'last 2 Safari major versions',
-      'last 2 iOS major versions',
-      'ie 11'
-   ], // replace browserlist config
+   browsers: ['defaults'], // replace browserlist config
    include: [], // include strategy is always used and you can only extend what is included besides `neutrino.options.source` and `neutrino.options.tests`
    exclude: [] // exclude something from processing that is included
+}))
+```
+
+You may enable usage of `.browserslistrc` file in your project by setting `browsers` option to any falsy value
+
+```js
+neutrino.use(vueLoader({
+   browsers: undefined // inherit config from `.browserslistrc` or disable if absent
 }))
 ```
 
@@ -64,11 +65,11 @@ The middleware also may be used together with another presets in Neutrino rc-fil
 **.neutrinorc.js**
 
 ```js
-let reactLoader = require('@constgen/neutrino-react-loader')
+let vueLoader = require('@constgen/neutrino-vue-loader')
 
 module.exports = {
    use: [
-      reactLoader()
+      vueLoader()
    ]
 }
 ```
