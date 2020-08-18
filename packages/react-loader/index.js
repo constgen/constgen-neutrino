@@ -9,15 +9,7 @@ module.exports = function (customSettings = {}) {
 		let defaultSettings = {
 			babel: {},
 			polyfills: false,
-			browsers: customSettings.browsers ? undefined : [
-				'last 2 Chrome major versions',
-				'last 2 Firefox major versions',
-				'last 2 Edge major versions',
-				'last 2 Opera major versions',
-				'last 2 Safari major versions',
-				'last 2 iOS major versions',
-				'ie 11'
-			],
+			browsers: customSettings.browsers ? undefined : ['defaults'],
 			include: [],
 			exclude: []
 		}
@@ -40,7 +32,16 @@ module.exports = function (customSettings = {}) {
 							}],
 							[require.resolve('babel-plugin-transform-jsx-url'), {
 								root: neutrino.options.source,
-								attrs: ['img:src', 'link:href', 'Image:src', 'video:src', 'Video:src', 'audio:src', 'Audio:src']
+								attrs: [
+									'img:src',
+									'Image:src',
+									'link:href',
+									'video:src',
+									'video:poster',
+									'Video:src',
+									'source:src',
+									'audio:src',
+									'Audio:src']
 							}],
 							prodMode && [require.resolve('babel-plugin-transform-react-remove-prop-types'), {
 								mode: 'remove',
@@ -66,7 +67,7 @@ module.exports = function (customSettings = {}) {
 		neutrino.config
 			.resolve
 				.extensions
-					.merge(['.tsx', '.ts', '.js', '.jsx'])
+					.merge(['.tsx', '.ts', '.jsx', '.js'])
 					.end()
 				.end()
 	}

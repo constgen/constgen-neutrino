@@ -14,14 +14,17 @@ This middleware enables many features by default with zero configuration
 - Typescript support
 - Decorators
 - Class properties
+- Babel transpilation according to browserlist
+- EcmaScript polyfills
 - Automatic React runtime inject to every JSX file
-- Resolve URLs in JSX like in HTML for these elements: `img[src]`, `link[href]`, `Image[src]`, `video[src]`, `Video[src]`, `audio[src]`, `Audio[src]`
+- Resolve URLs in JSX like in HTML for these elements: `img[src]`, `link[href]`, `Image[src]`, `video[src]`, `video[poster]`, `Video[src]`, `source[src]`, `audio[src]`, `Audio[src]`
 - Remove prop types in production
 
 ## Requirements
 
 - Node.js v10+
 - Neutrino v9
+- Webpack v4
 
 ## Installation
 
@@ -43,17 +46,17 @@ let reactLoader = require('@constgen/neutrino-react-loader')
 neutrino.use(reactLoader({
    babel: {}, // custom Babel options
    polyfills: false, // enable EcmaScript polyfills
-   browsers: [
-      'last 2 Chrome major versions',
-      'last 2 Firefox major versions',
-      'last 2 Edge major versions',
-      'last 2 Opera major versions',
-      'last 2 Safari major versions',
-      'last 2 iOS major versions',
-      'ie 11'
-   ], // replace browserlist config
+   browsers: ['defaults'], // replace browserlist config
    include: [], // include strategy is always used and you can only extend what is included besides `neutrino.options.source` and `neutrino.options.tests`
    exclude: [] // exclude something from processing that is included
+}))
+```
+
+You may enable usage of `.browserslistrc` file in your project by setting `browsers` option to any falsy value
+
+```js
+neutrino.use(reactLoader({
+   browsers: undefined // inherit config from `.browserslistrc` or disable if absent
 }))
 ```
 
