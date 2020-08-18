@@ -3,11 +3,11 @@
 [![npm](https://img.shields.io/npm/v/@constgen/neutrino-react-launcher.svg)](https://www.npmjs.com/package/@constgen/neutrino-react-launcher)
 [![npm](https://img.shields.io/npm/dt/@constgen/neutrino-react-launcher.svg)](https://www.npmjs.com/package/@constgen/neutrino-react-launcher)
 
-[Neutrino](https://neutrino.js.org) middleware for React files
+[Neutrino](https://neutrino.js.org) middleware for an automatic React application launching in a browser document with hot reload
 
-Using this middleware your entry point should only export the main application component
+Using this middleware you no longer need to bootstrap HMR and app mounting. It is done automatically. The only thing you need is to only export the main JSX component in your main application component (entry file)
 
-**index.jsx**
+**src/index.jsx**
 
 ```jsx
 import React from 'react'
@@ -29,7 +29,8 @@ export default class extends React.Component {
 
 - Node.js v10+
 - Neutrino v9
-- React v16
+- Webpack v4
+- React v16, v17
 
 ## Installation
 

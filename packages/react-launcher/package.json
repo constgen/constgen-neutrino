@@ -1,6 +1,6 @@
 {
 	"name": "@constgen/neutrino-react-launcher",
-	"version": "1.0.1",
+	"version": "1.5.0",
 	"description": "Neutrino middleware for an automatic React application launching in a browser document with hot reload",
 	"main": "index.js",
 	"author": "Constantine Genchevsky <const.gen@gmail.com>",
@@ -20,14 +20,15 @@
 		"hot"
 	],
 	"dependencies": {
-		"react-hot-loader": "4.12.20",
+		"react-hot-loader": "4.12.21",
 		"@hot-loader/react-dom": "16.13.0",
 		"deepmerge": "4.2.2"
 	},
 	"peerDependencies": {
 		"neutrino": "^9.0.0",
-		"react": "^16.10.0",
-    	"react-dom": "^16.10.0"
+		"webpack": "^4.0.0",
+		"react": "^16.0.0 || ^17.0.0",
+    	"react-dom": "^16.0.0 || ^17.0.0"
 	},
 	"files": [
 		"**/*.js",

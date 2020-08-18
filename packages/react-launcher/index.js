@@ -2,14 +2,10 @@ let path = require('path')
 
 let deepmerge = require('deepmerge')
 
-module.exports = function (customSettings = {}) {
+module.exports = function () {
 	return function (neutrino) {
 		let launcherPath = path.resolve(__dirname, './launcher/launcher.js')
 		let projectNodeModulesPath = path.resolve(process.cwd(), 'node_modules')
-		let defaultSettings = {
-			entries: neutrino.options.mains
-		}
-		let settings = deepmerge(defaultSettings, customSettings)
 
 		neutrino.config
 			.devServer
@@ -33,14 +29,14 @@ module.exports = function (customSettings = {}) {
 					.end()
 				.end()
 
-		Object.keys(settings.entries).forEach(function (key) {
+		Object.keys(neutrino.options.mains).forEach(function (key) {
 			neutrino.config
 				.entry(key)
 					.clear()
 					.add(launcherPath)
 					.end()
 				.resolve.alias
-					.set('__entry__', path.resolve(__dirname, settings.entries[key].entry))
+					.set('__entry__', path.resolve(__dirname, neutrino.options.mains[key].entry))
 					.end().end()
 		})
 	}

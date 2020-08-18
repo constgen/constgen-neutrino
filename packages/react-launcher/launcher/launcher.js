@@ -4,4 +4,15 @@ import { render } from 'react-dom'
 
 import HotEntry from './hot-entry'
 
-render(React.createElement(HotEntry), document.getElementById('root'))
+let rootElement = document.getElementById('root')
+
+if (!rootElement) {
+	rootElement = document.createElement('div')
+	rootElement.id = 'root'
+	document.body.appendChild(rootElement)
+}
+
+rootElement.style.width = '100%'
+rootElement.style.height = '100%'
+
+render(React.createElement(HotEntry), rootElement)
