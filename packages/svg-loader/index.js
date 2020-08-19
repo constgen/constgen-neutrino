@@ -3,13 +3,13 @@
 module.exports = function () {
 	return function (neutrino) {
 		const CSS_EXTENSIONS = /\.(css|less|sass|scss|pcss)$/i
-		const SVG_EXTENSIONS = /\.svg(\?v=\d+\.\d+\.\d+)?$/i
-		let svgUrlLoader = require.resolve('svg-url-loader')
-		let svgInlineLoader = require.resolve('svg-inline-loader')
-		let extractLoader = require.resolve('extract-loader')
-		let prodMode = neutrino.config.get('mode') !== 'development'
-		let outputPath = prodMode ? 'images' : undefined
-		let name = prodMode ? '[name].[hash:8].[ext]' : '[path][name].[ext]'
+		const SVG_EXTENSIONS = /\.(svg|svg\?v=\d+\.\d+\.\d+)$/i
+		let svgUrlLoader     = require.resolve('svg-url-loader')
+		let svgInlineLoader  = require.resolve('svg-inline-loader')
+		let extractLoader    = require.resolve('extract-loader')
+		let productionMode   = neutrino.config.get('mode') !== 'development'
+		let outputPath       = productionMode ? 'images' : undefined
+		let name             = productionMode ? '[name].[hash:8].[ext]' : '[path][name].[ext]'
 
 		neutrino.config.module
 			.rules.delete('svg')
@@ -27,8 +27,8 @@ module.exports = function () {
 						.options({
 							outputPath,
 							name,
-							limit: 1,
-							noquotes: false,
+							limit            : 1,
+							noquotes         : false,
 							stripdeclarations: true
 						})
 						.end()
@@ -37,7 +37,7 @@ module.exports = function () {
 					.use('data-url-svg')
 						.loader(svgUrlLoader)
 						.options({
-							noquotes: true,
+							noquotes         : true,
 							stripdeclarations: true
 						 })
 						.end()
@@ -47,13 +47,13 @@ module.exports = function () {
 					.use('text-svg')
 						.loader(svgInlineLoader)
 						.options({
-							removeTags: false,
-							warnTags: [],
+							removeTags       : false,
+							warnTags         : [],
 							removeSVGTagAttrs: false,
-							removingTagAttrs: [],
-							warnTagAttrs: [],
-							classPrefix: false,
-							idPrefix: true
+							removingTagAttrs : [],
+							warnTagAttrs     : [],
+							classPrefix      : false,
+							idPrefix         : true
 						 })
 						.end()
 					.end()

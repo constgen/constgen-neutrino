@@ -9,6 +9,7 @@
 
 - Node.js v10+
 - Neutrino v9
+- Webpack v4
 
 ## Installation
 
@@ -28,7 +29,7 @@ Require this package and plug it into Neutrino. The following shows how you can 
 let analysis = require('@constgen/neutrino-analysis')
 
 neutrino.use(analysis({
-   dependencies: true, // report in the terminal about circular or duplicated dependncies
+   dependencies  : true, // report in the terminal about circular or duplicated dependncies
    bundleAnalyzer: true // enable BundleAnalyzerPlugin
 }))
 ```

@@ -16,6 +16,7 @@
 
 - Node.js v10+
 - Neutrino v9
+- Webpack v4
 
 ## Installation
 
@@ -35,7 +36,7 @@ Require this package and plug it into Neutrino. The following shows how you can 
 let progress = require('@constgen/neutrino-progress')
 
 neutrino.use(progress({
-   name: '', // application name to label the progress bar; fallsback to the information from package.json
+   name : '', // application name to label the progress bar; fallsback to the information from package.json
    color: 'green' // progress bar color
 }))
 ```

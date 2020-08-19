@@ -17,6 +17,7 @@
 
 - Node.js v10+
 - Neutrino v9
+- Webpack v4
 
 ## Installation
 
@@ -37,7 +38,7 @@ let sourcemap = require('@constgen/neutrino-sourcemap')
 
 neutrino.use(sourcemap({
    prod: false, // enable source maps in production
-   dev: true // enable source maps in development
+   dev : true // enable source maps in development
 }))
 ```
 

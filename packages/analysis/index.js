@@ -1,16 +1,16 @@
 let { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
-let deepmerge = require('deepmerge')
-let dependency = require('@constgen/neutrino-dependency')
+let deepmerge                = require('deepmerge')
+let dependency               = require('@constgen/neutrino-dependency')
 
 module.exports = function (customSettings = {}) {
 	return function (neutrino) {
-		let prodMode = neutrino.config.get('mode') !== 'development'
+		let productionMode  = neutrino.config.get('mode') !== 'development'
 		let defaultSettings = {
-			dependencies: true,
+			dependencies  : true,
 			bundleAnalyzer: true
 		}
-		let settings = deepmerge(defaultSettings, customSettings)
-		let port = Number(neutrino.config.devServer.get('port'))
+		let settings        = deepmerge(defaultSettings, customSettings)
+		let port            = Number(neutrino.config.devServer.get('port'))
 
 		neutrino.config
 			.when(settings.dependencies, function () {
@@ -18,15 +18,16 @@ module.exports = function (customSettings = {}) {
 			})
 			.when(settings.bundleAnalyzer, function (config) {
 				config.plugin('bundle-analyzer').use(BundleAnalyzerPlugin, [{
-					analyzerMode: prodMode ? 'static' : 'server',
-					analyzerHost: 'localhost',
-					analyzerPort: port ? (port + 1) : 'auto',
-					reportFilename: 'bundle-report.html',
-					defaultSizes: 'parsed',
-					openAnalyzer: false,
+					analyzerMode     : productionMode ? 'static' : 'server',
+					analyzerHost     : 'localhost',
+					analyzerPort     : port ? (port + 1) : 'auto',
+					reportFilename   : 'bundle-report.html',
+					defaultSizes     : 'parsed',
+					openAnalyzer     : false,
 					generateStatsFile: false,
-					statsFilename: 'stats.json',
-					statsOptions: null,
+					statsFilename    : 'stats.json',
+
+					// statsOptions     : { excludeAssets: [/\.map$/] },
 					excludeAssets (assetName) {
 						const HMR_PATCH_EXP = /hot-update\.js$/
 

@@ -1,11 +1,11 @@
 let GitRevisionPlugin = require('git-revision-webpack-plugin')
-let { DefinePlugin } = require('webpack')
-let envCi = require('env-ci')
+let { DefinePlugin }  = require('webpack')
+let envCi             = require('env-ci')
 
 let {
 	isCi: inCIEnvironment, branch, isPr: duringPR, tag, prBranch
 } = envCi()
-let branchCommand
+let branchCommand = ''
 
 if (inCIEnvironment) {
 	if (duringPR) {
@@ -18,28 +18,28 @@ if (inCIEnvironment) {
 
 module.exports = function () {
 	return function (neutrino) {
-		let { version } = neutrino.options.packageJson
-		let revisionOptions = {
+		let { version }      = neutrino.options.packageJson
+		let revisionOptions  = {
 			lightweightTags: true,
-			branch: true,
+			branch         : true,
 			branchCommand
 		}
-		let env = {
-			VERSION: version,
+		let env              = {
+			VERSION   : version,
 			COMMITHASH: '',
-			BRANCH: ''
+			BRANCH    : ''
 		}
 		let inGitEnvironment = false
 
 		try {
 			let gitRevisionPlugin = new GitRevisionPlugin(revisionOptions)
 
-			env.VERSION = gitRevisionPlugin.version()
-			env.COMMITHASH = gitRevisionPlugin.commithash()
-			env.BRANCH = gitRevisionPlugin.branch()
+			env.VERSION      = gitRevisionPlugin.version()
+			env.COMMITHASH   = gitRevisionPlugin.commithash()
+			env.BRANCH       = gitRevisionPlugin.branch()
 			inGitEnvironment = true
 		}
-		catch (err) {}
+		catch {}
 
 		neutrino.config
 			.when(inGitEnvironment, function (config) {
@@ -50,9 +50,9 @@ module.exports = function () {
 			})
 			.plugin('revision-vars')
 				.use(DefinePlugin, [{
-					'process.env.VERSION': JSON.stringify(env.VERSION),
+					'process.env.VERSION'   : JSON.stringify(env.VERSION),
 					'process.env.COMMITHASH': JSON.stringify(env.COMMITHASH),
-					'process.env.BRANCH': JSON.stringify(env.BRANCH)
+					'process.env.BRANCH'    : JSON.stringify(env.BRANCH)
 				}])
 				.end()
 	}

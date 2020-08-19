@@ -1,4 +1,4 @@
-let CircularDependencyPlugin = require('circular-dependency-plugin')
+let CircularDependencyPlugin      = require('circular-dependency-plugin')
 let DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin')
 
 module.exports = function () {
@@ -6,18 +6,18 @@ module.exports = function () {
 		neutrino.config
 			.plugin('depend')
 				.use(CircularDependencyPlugin, [{
-					exclude: /node_modules/,
-					failOnError: false,
+					exclude         : /node_modules/,
+					failOnError     : false,
 					allowAsyncCycles: true,
-					cwd: process.cwd()
+					cwd             : process.cwd()
 				}])
 				.end()
 			.plugin('depend')
 				.use(DuplicatePackageCheckerPlugin, [{
-					verbose: true,
+					verbose  : true,
 					emitError: false,
-					showHelp: true,
-					strict: true
+					showHelp : true,
+					strict   : true
 				}])
 				.end()
 	}

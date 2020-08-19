@@ -16,6 +16,7 @@ You may want to use [`@constgen/neutrino-analysis`](https://github.com/constgen/
 
 - Node.js v10+
 - Neutrino v9
+- Webpack v4
 
 ## Installation
 

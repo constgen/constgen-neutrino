@@ -1,6 +1,6 @@
 {
 	"name": "@constgen/neutrino-react-scoped-styles",
-	"version": "1.4.1",
+	"version": "1.5.0",
 	"description": "Neutrino middleware for isolation of React components styles",
 	"main": "index.js",
 	"author": "Constantine Genchevsky <const.gen@gmail.com>",
@@ -25,7 +25,8 @@
 		"source-map": "0.7.3"
 	},
 	"peerDependencies": {
-		"neutrino": "^9.0.0"
+		"neutrino": "^9.0.0",
+		"webpack": "^4.0.0"
 	},
 	"files": [
 		"**/*.js",

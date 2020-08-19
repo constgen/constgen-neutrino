@@ -9,7 +9,8 @@
 
 - Node.js v10+
 - Neutrino v9
-- React v16
+- React
+- Webpack v4
 
 ## Installation
 

@@ -1,28 +1,28 @@
-let deepmerge = require('deepmerge')
-let babelMerge = require('babel-merge')
+let deepmerge   = require('deepmerge')
+let babelMerge  = require('babel-merge')
 let babelLoader = require('@constgen/neutrino-babel-loader')
 
 module.exports = function (customSettings = {}) {
 	return function (neutrino) {
-		let devMode = neutrino.config.get('mode') === 'development'
-		let prodMode = !devMode
+		let developmentMode = neutrino.config.get('mode') === 'development'
+		let productionMode  = !developmentMode
 		let defaultSettings = {
-			babel: {},
+			babel    : {},
 			polyfills: false,
-			browsers: customSettings.browsers ? undefined : ['defaults'],
-			include: [],
-			exclude: []
+			browsers : customSettings.browsers ? undefined : ['defaults'],
+			include  : [],
+			exclude  : []
 		}
-		let settings = deepmerge(defaultSettings, customSettings)
+		let settings        = deepmerge(defaultSettings, customSettings)
 
 		neutrino.use(
 			babelLoader({
-				test: /\.(j|t)sx?$/,
-				include: settings.include,
-				exclude: settings.exclude,
+				test     : /\.(j|t)sx?$/,
+				include  : settings.include,
+				exclude  : settings.exclude,
 				polyfills: settings.polyfills,
-				targets: settings.browsers ? { browsers: settings.browsers } : {},
-				babel: babelMerge(
+				targets  : settings.browsers ? { browsers: settings.browsers } : {},
+				babel    : babelMerge(
 					{
 						plugins: [
 							[require.resolve('babel-plugin-jsx-pragmatic'), {
@@ -31,7 +31,7 @@ module.exports = function (customSettings = {}) {
 								import: 'createElement'
 							}],
 							[require.resolve('babel-plugin-transform-jsx-url'), {
-								root: neutrino.options.source,
+								root : neutrino.options.source,
 								attrs: [
 									'img:src',
 									'Image:src',
@@ -43,18 +43,18 @@ module.exports = function (customSettings = {}) {
 									'audio:src',
 									'Audio:src']
 							}],
-							prodMode && [require.resolve('babel-plugin-transform-react-remove-prop-types'), {
-								mode: 'remove',
-								removeImport: true,
-								classNameMatchers: ['Component', 'PureComponent'],
+							productionMode && [require.resolve('babel-plugin-transform-react-remove-prop-types'), {
+								mode               : 'remove',
+								removeImport       : true,
+								classNameMatchers  : ['Component', 'PureComponent'],
 								additionalLibraries: ['react-immutable-proptypes']
 							}]
 						].filter(Boolean),
 						presets: [
 							[require.resolve('@babel/preset-react'), {
-								development: devMode,
-								pragma: 'createElement',
-								useSpread: true,
+								development: developmentMode,
+								pragma     : 'createElement',
+								useSpread  : true,
 								useBuiltIns: false
 							}]
 						]

@@ -1,23 +1,24 @@
-module.exports = function ({ prod = false, dev = true } = {}) {
+function isConfigurable (use) {
+	const COMPATIBLE_NAME_EXPRESSION = /^(css|less|sass|postcss)$/i
+
+	return COMPATIBLE_NAME_EXPRESSION.test(use.name)
+}
+
+module.exports = function ({ prod: production = false, dev: development = true } = {}) {
 	return function (neutrino) {
-		let devMode = neutrino.config.get('mode') === 'development'
-		let productionSourcemap = Boolean(prod)
-		let developmentSourcemap = Boolean(dev)
-		let sourceMap = Boolean(devMode && developmentSourcemap) || Boolean(productionSourcemap)
-		let styleRule = neutrino.config.module.rules.get('style')
+		let developmentMode      = neutrino.config.get('mode') === 'development'
+		let productionSourcemap  = Boolean(production)
+		let developmentSourcemap = Boolean(development)
+		let sourceMap            = Boolean(developmentMode && developmentSourcemap) || Boolean(productionSourcemap)
+		let styleRule            = neutrino.config.module.rules.get('style')
 
 		function configureSourceMap (use) {
 			use.tap(options => Object.assign({}, options, { sourceMap }))
 		}
-		function isConfigurable (use) {
-			const COMPATIBLE_NAME_EXPRESSION = /^(css|less|sass|postcss)$/i
-
-			return COMPATIBLE_NAME_EXPRESSION.test(use.name)
-		}
 
 		if (styleRule) {
 			let oneOfs = styleRule.oneOfs.values()
-			let uses = styleRule.uses.values()
+			let uses   = styleRule.uses.values()
 
 			uses
 				.filter(isConfigurable)

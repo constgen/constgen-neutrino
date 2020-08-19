@@ -22,18 +22,17 @@ function getHostName () {
 	try {
 		return os.hostname()
 	}
-	catch (err) {
-
-	}
+	catch { }
 }
 
 module.exports = function getIps () {
 	let netInterfaces = os.networkInterfaces()
-	let hostname = getHostName()
+	let hostname      = getHostName()
+
 	let IPs = Object.keys(netInterfaces)
-        .map(getFrom(netInterfaces))
-        .reduce(concat)
-        .filter(isIPv4)
+		.map(getFrom(netInterfaces))
+		.reduce(concat)
+		.filter(isIPv4)
 		.map(getIP)
 
 	if (hostname) {

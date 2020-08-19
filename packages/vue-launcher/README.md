@@ -13,10 +13,6 @@ Using this middleware you no longer need to bootstrap HMR and app mounting. It i
 <template>
    <h1>Root component</h1>
 </template>
-
-<script>
-export default {}
-</script>
 ```
 
 ## Features

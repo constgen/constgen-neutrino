@@ -1,23 +1,23 @@
 let WebpackBar = require('webpackbar')
-let clear = require('console-clear')
+let clear      = require('console-clear')
 
 module.exports = function (customSettings = {}) {
 	return function (neutrino) {
-		let prodMode = neutrino.config.get('mode') !== 'development'
+		let productionMode    = neutrino.config.get('mode') !== 'development'
 		let { name, version } = neutrino.options.packageJson
-		let defaultSettings = {
-			name: `${name} ${version}`,
+		let defaultSettings   = {
+			name : `${name} ${version}`,
 			color: 'green',
 			clean: true
 		}
-		let settings = Object.assign({}, defaultSettings, customSettings)
+		let settings          = Object.assign({}, defaultSettings, customSettings)
 
 		neutrino.config
 			.devServer
 				.progress(false)
 				.stats({
-					all: false,
-					errors: true,
+					all     : false,
+					errors  : true,
 					warnings: true
 				})
 
@@ -27,25 +27,25 @@ module.exports = function (customSettings = {}) {
 				// })
 				.end()
 			.stats({
-				children: false,
-				entrypoints: false,
-				modules: false,
-				hash: prodMode,
-				performance: true,
-				version: prodMode,
-				assets: prodMode,
-				colors: true,
-				assetsSort: 'chunks',
-				env: true,
-				builtAt: prodMode,
-				timings: prodMode,
+				children     : false,
+				entrypoints  : false,
+				modules      : false,
+				hash         : productionMode,
+				performance  : true,
+				version      : productionMode,
+				assets       : productionMode,
+				colors       : true,
+				assetsSort   : 'chunks',
+				env          : true,
+				builtAt      : productionMode,
+				timings      : productionMode,
 				excludeAssets: [/\.map$/]
 			})
 			.plugin('progress')
 				.use(WebpackBar, [{
-					name: settings.name,
-					color: settings.color,
-					profile: false,
+					name    : settings.name,
+					color   : settings.color,
+					profile : false,
 					reporter: {
 						// Called when (re)compile is started
 						start () {

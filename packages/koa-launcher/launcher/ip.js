@@ -6,6 +6,6 @@ module.exports = {
 		return getIPs()
 	},
 	isLocal (ip) {
-		return module.exports.locals.indexOf(ip) >= 0
+		return module.exports.locals.includes(ip)
 	}
 }

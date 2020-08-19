@@ -1,19 +1,19 @@
-let deepmerge = require('deepmerge')
+let deepmerge   = require('deepmerge')
 let styleMinify = require('@neutrinojs/style-minify')
 
 module.exports = function (customSettings = {}) {
 	return function (neutrino) {
-		const SIZE_2MB = 2000000
-		const SIZE_4MB = 4000000
+		const SIZE_2MB         = 2000000
+		const SIZE_4MB         = 4000000
 		const NODE_MODULES_EXP = /[/\\]node_modules[/\\]/i
-		let devMode = neutrino.config.get('mode') === 'development'
-		let prodMode = !devMode
-		let targetIsNode = ['node', 'async-node', 'node-webkit', 'electron-main'].includes(neutrino.config.get('target'))
-		let defaultSettings = {
-			chunks: true,
+		let developmentMode    = neutrino.config.get('mode') === 'development'
+		let productionMode     = !developmentMode
+		let targetIsNode       = ['node', 'async-node', 'node-webkit', 'electron-main'].includes(neutrino.config.get('target'))
+		let defaultSettings    = {
+			chunks  : true,
 			minimize: true
 		}
-		let settings = deepmerge(defaultSettings, customSettings)
+		let settings           = deepmerge(defaultSettings, customSettings)
 
 		// https://linguinecode.com/post/reduce-css-file-size-webpack-tree-shaking
 
@@ -31,47 +31,47 @@ module.exports = function (customSettings = {}) {
 				})
 				.end()
 			.optimization
-				.minimize(prodMode)
+				.minimize(productionMode)
 				.runtimeChunk(false)
-				.set('moduleIds', devMode ? 'named' : 'hashed')
-				.set('chunkIds', devMode ? 'named' : 'total-size')
-				.removeAvailableModules(prodMode)
-				.removeEmptyChunks(prodMode)
+				.set('moduleIds', developmentMode ? 'named' : 'hashed')
+				.set('chunkIds', developmentMode ? 'named' : 'total-size')
+				.removeAvailableModules(productionMode)
+				.removeEmptyChunks(productionMode)
 				.mergeDuplicateChunks(true)
-				.flagIncludedChunks(prodMode)
-				.occurrenceOrder(prodMode)
+				.flagIncludedChunks(productionMode)
+				.occurrenceOrder(productionMode)
 				.splitChunks({
-					chunks: 'all',
-					name: false,
+					chunks            : 'all',
+					name              : false,
 					maxInitialRequests: 6,
-					maxAsyncRequests: 6,
-					minSize: 30000,
-					minChunks: 2,
-					cacheGroups: {
-						default: false,
+					maxAsyncRequests  : 6,
+					minSize           : 30000,
+					minChunks         : 2,
+					cacheGroups       : {
+						default       : false,
 						defaultVendors: false,
-						vendors: {
-							test: NODE_MODULES_EXP,
-							name: 'vendor',
-							chunks: 'initial',
+						vendors       : {
+							test   : NODE_MODULES_EXP,
+							name   : 'vendor',
+							chunks : 'initial',
 							enforce: true,
 							maxSize: SIZE_2MB
 						},
 						async_vendor: {
-							test: NODE_MODULES_EXP,
-							name: devMode,
-							chunks: 'async',
+							test              : NODE_MODULES_EXP,
+							name              : developmentMode,
+							chunks            : 'async',
 							reuseExistingChunk: true,
-							enforce: true,
-							maxSize: SIZE_2MB
+							enforce           : true,
+							maxSize           : SIZE_2MB
 						},
 						common: {
 							// idHint: 'common',
-							name: devMode,
-							chunks: 'all',
-							minChunks: 2,
+							name              : developmentMode,
+							chunks            : 'all',
+							minChunks         : 2,
 							reuseExistingChunk: true,
-							maxSize: SIZE_2MB
+							maxSize           : SIZE_2MB
 						}
 
 						// config: {

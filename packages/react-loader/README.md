@@ -44,11 +44,11 @@ Require this package and plug it into Neutrino. The following shows how you can 
 let reactLoader = require('@constgen/neutrino-react-loader')
 
 neutrino.use(reactLoader({
-   babel: {}, // custom Babel options
+   babel    : {}, // custom Babel options
    polyfills: false, // enable EcmaScript polyfills
-   browsers: ['defaults'], // replace browserlist config
-   include: [], // include strategy is always used and you can only extend what is included besides `neutrino.options.source` and `neutrino.options.tests`
-   exclude: [] // exclude something from processing that is included
+   browsers : ['defaults'], // replace browserlist config
+   include  : [], // include strategy is always used and you can only extend what is included besides `neutrino.options.source` and `neutrino.options.tests`
+   exclude  : [] // exclude something from processing that is included
 }))
 ```
 

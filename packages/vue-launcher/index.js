@@ -17,9 +17,11 @@ module.exports = function () {
 					.clear()
 					.add(launcherPath)
 					.end()
-				.resolve.alias
-					.set('__entry__', path.resolve(__dirname, neutrino.options.mains[key].entry))
-					.end().end()
+				.resolve
+					.alias
+						.set('__entry__', path.resolve(__dirname, neutrino.options.mains[key].entry))
+						.end()
+					.end()
 		})
 	}
 }

@@ -1,6 +1,6 @@
-let deepmerge = require('deepmerge')
-let babelMerge = require('babel-merge')
-let babelLoader = require('@constgen/neutrino-babel-loader')
+let deepmerge           = require('deepmerge')
+let babelMerge          = require('babel-merge')
+let babelLoader         = require('@constgen/neutrino-babel-loader')
 let { VueLoaderPlugin } = require('vue-loader')
 
 let vueStyleLoader = require('./middlewares/vue-style-loader')
@@ -8,24 +8,24 @@ let vueStyleLoader = require('./middlewares/vue-style-loader')
 module.exports = function (customSettings = {}) {
 	return function (neutrino) {
 		let developmentMode = neutrino.config.get('mode') === 'development'
-		let productionMode = !developmentMode
+		let productionMode  = !developmentMode
 		let defaultSettings = {
-			babel: {},
+			babel    : {},
 			polyfills: false,
-			browsers: customSettings.browsers ? undefined : ['defaults'],
-			include: [],
-			exclude: []
+			browsers : customSettings.browsers ? undefined : ['defaults'],
+			include  : [],
+			exclude  : []
 		}
-		let settings = deepmerge(defaultSettings, customSettings)
+		let settings        = deepmerge(defaultSettings, customSettings)
 
 		neutrino.use(
 			babelLoader({
-				test: /\.(j|t)s?$/,
-				include: settings.include,
-				exclude: settings.exclude,
+				test     : /\.(j|t)s?$/,
+				include  : settings.include,
+				exclude  : settings.exclude,
 				polyfills: settings.polyfills,
-				targets: settings.browsers ? { browsers: settings.browsers } : {},
-				babel: babelMerge(
+				targets  : settings.browsers ? { browsers: settings.browsers } : {},
+				babel    : babelMerge(
 					{
 						plugins: [require.resolve('babel-plugin-transform-vue-jsx')]
 					},
@@ -49,21 +49,21 @@ module.exports = function (customSettings = {}) {
 						.loader(require.resolve('vue-loader'))
 						.tap((options = {}) => deepmerge({
 							transformAssetUrls: {
-								img: 'src',
-								link: 'href',
-								video: ['src', 'poster'],
+								img   : 'src',
+								link  : 'href',
+								video : ['src', 'poster'],
 								source: 'src',
-								audio: 'src',
-								image: ['xlink:href', 'href'],
-								use: ['xlink:href', 'href']
+								audio : 'src',
+								image : ['xlink:href', 'href'],
+								use   : ['xlink:href', 'href']
 							 },
-							 hotReload: developmentMode,
+							 hotReload      : developmentMode,
 							 productionMode,
 							 compilerOptions: {
 								whitespace: 'condense',
-								modules: false
+								modules   : false
 							 },
-							 prettify: false,
+							 prettify      : false,
 							 exposeFilename: developmentMode
 						}, options))
 						.end()

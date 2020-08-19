@@ -1,8 +1,8 @@
 module.exports = function () {
 	return function (neutrino) {
-		let vueStyleLoaderPath = require.resolve('vue-style-loader')
-		let styleRule = neutrino.config.module.rules.get('style')
-		let styleUse = styleRule && styleRule.uses.get('style')
+		let vueStyleLoaderPath    = require.resolve('vue-style-loader')
+		let styleRule             = neutrino.config.module.rules.get('style')
+		let styleUse              = styleRule && styleRule.uses.get('style')
 		let normalStyleExtensions = styleRule.oneOf('normal').get('test')
 
 		if (styleUse) {
@@ -10,9 +10,9 @@ module.exports = function () {
 		}
 
 		if (styleRule) {
-			let oneOfs = styleRule.oneOfs.values().filter(oneOf => oneOf.get('test'))
+			let oneOfs        = styleRule.oneOfs.values().filter(oneOf => oneOf.get('test'))
 			let defaultOneOfs = oneOfs.filter(oneOf => !oneOf.uses.get('css').get('options').modules)
-			let moduleOneOfs = oneOfs.filter(oneOf => oneOf.uses.get('css').get('options').modules)
+			let moduleOneOfs  = oneOfs.filter(oneOf => oneOf.uses.get('css').get('options').modules)
 
 			defaultOneOfs
 				.map(oneOf => oneOf.uses.get('style'))

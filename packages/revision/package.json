@@ -1,6 +1,6 @@
 {
 	"name": "@constgen/neutrino-revision",
-	"version": "1.0.0",
+	"version": "1.5.0",
 	"description": "Neutrino middleware for versioning of the application based on the Git revision",
 	"main": "index.js",
 	"author": "Constantine Genchevsky <const.gen@gmail.com>",

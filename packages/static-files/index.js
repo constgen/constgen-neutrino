@@ -4,13 +4,13 @@ let copy = require('@neutrinojs/copy')
 
 module.exports = function () {
 	return function (neutrino) {
-		let staticDir = path.join(neutrino.options.source, 'static')
+		let staticDirectoryPath = path.join(neutrino.options.source, 'static')
 
 		neutrino.use(copy({
 			patterns: [{
-			  context: staticDir,
-			  from: '**/*',
-			  to: path.basename(staticDir)
+			  context: staticDirectoryPath,
+			  from   : '**/*',
+			  to     : path.basename(staticDirectoryPath)
 			}]
 		 }))
 	}

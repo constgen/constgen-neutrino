@@ -1,6 +1,6 @@
 {
 	"name": "@constgen/neutrino-static-files",
-	"version": "1.0.0",
+	"version": "1.5.0",
 	"description": "Neutrino middleware for copying of static files of the project",
 	"main": "index.js",
 	"author": "Constantine Genchevsky <const.gen@gmail.com>",
@@ -23,7 +23,8 @@
 		"@neutrinojs/copy": "9.1.0"
 	},
 	"peerDependencies": {
-		"neutrino": "^9.0.0"
+		"neutrino": "^9.0.0",
+		"webpack": "^4.0.0"
 	},
 	"files": [
 		"**/*.js",

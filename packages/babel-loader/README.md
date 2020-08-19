@@ -24,6 +24,7 @@ This middleware enables many features by default with zero configuration
 
 - Node.js v10+
 - Neutrino v9
+- Webpack v4
 
 ## Installation
 
@@ -43,12 +44,12 @@ Require this package and plug it into Neutrino. The following shows how you can 
 let babelLoader = require('@constgen/neutrino-babel-loader')
 
 neutrino.use(babelLoader({
-   babel: {}, // custom Babel options
-   test: [], // extend extensions to test besides those that are in `neutrino.options.extensions`
+   babel    : {}, // custom Babel options
+   test     : [], // extend extensions to test besides those that are in `neutrino.options.extensions`
    polyfills: false, // enable EcmaScript polyfills
-   targets: { }, // browserlist config
-   include: [], // include strategy is always used and you can only extend what is included besides `neutrino.options.source` and `neutrino.options.tests`
-   exclude: [] // exclude something from processing that is included
+   targets  : { }, // browserlist config
+   include  : [], // include strategy is always used and you can only extend what is included besides `neutrino.options.source` and `neutrino.options.tests`
+   exclude  : [] // exclude something from processing that is included
 }))
 ```
 

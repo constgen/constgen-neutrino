@@ -1,7 +1,7 @@
 const { ConfigurationError } = require('neutrino/errors')
 
-const STYLE_EXTENSIONS = /\.(css|scss|sass|less|styl|pcss)$/
-const JSX_EXTENSIONS = /\.(jsx|tsx)$/
+const STYLE_EXTENSIONS   = /\.(css|scss|sass|less|styl|pcss)$/
+const JSX_EXTENSIONS     = /\.(jsx|tsx)$/
 let scopedStylesSettings = {
 	globalsPrefix: 'app'
 }
@@ -26,7 +26,7 @@ function reactScopedStyle () {
 		let styleRule = neutrino.config.module.rules.get('style')
 
 		if (!styleRule) {
-			throw new ConfigurationError(`'react-scoped-styles' middleware requires 'neutrino.config.module.rule('style')' to be defined before`)
+			throw new ConfigurationError(`’react-scoped-styles’ middleware requires ’neutrino.config.module.rule("style")’ to be defined before`)
 		}
 
 		neutrino.config.module
@@ -50,5 +50,6 @@ module.exports = function () {
 		neutrino.use(reactScopedStyle())
 	}
 }
+
 module.exports.reactScopedComponent = reactScopedComponent
-module.exports.reactScopedStyle = reactScopedStyle
+module.exports.reactScopedStyle     = reactScopedStyle

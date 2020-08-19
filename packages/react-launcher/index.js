@@ -4,7 +4,7 @@ let deepmerge = require('deepmerge')
 
 module.exports = function () {
 	return function (neutrino) {
-		let launcherPath = path.resolve(__dirname, './launcher/launcher.js')
+		let launcherPath           = path.resolve(__dirname, './launcher/launcher.js')
 		let projectNodeModulesPath = path.resolve(process.cwd(), 'node_modules')
 
 		neutrino.config
@@ -35,9 +35,11 @@ module.exports = function () {
 					.clear()
 					.add(launcherPath)
 					.end()
-				.resolve.alias
-					.set('__entry__', path.resolve(__dirname, neutrino.options.mains[key].entry))
-					.end().end()
+				.resolve
+					.alias
+						.set('__entry__', path.resolve(__dirname, neutrino.options.mains[key].entry))
+						.end()
+					.end()
 		})
 	}
 }

@@ -19,6 +19,7 @@
 
 - Node.js v10+
 - Neutrino v9
+- Webpack v4
 
 ## Installation
 
@@ -38,7 +39,7 @@ Require this package and plug it into Neutrino. The following shows how you can 
 let optimization = require('@constgen/neutrino-optimization')
 
 neutrino.use(optimization({
-   chunks: true, // enable chunks optimization splitting
+   chunks  : true, // enable chunks optimization splitting
    minimize: true // enable code minification
 }))
 ```

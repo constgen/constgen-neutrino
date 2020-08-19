@@ -16,7 +16,7 @@
 	],
 	"scripts": {
 		"preinstall": "node -e \"!process.env.npm_config_user_agent.startsWith('pnpm/') && !console.log('Use \\`npx pnpm install\\` to install dependencies in this repository\\n') && process.exit(1)\"",
-		"eslint": "eslint ./ --ext .js,.jsx,.html,.md",
+		"eslint": "eslint ./",
 		"pretest": "npm run eslint -- --max-warnings 0",
 		"lint": "npm run eslint -- --fix"
 	},
@@ -24,9 +24,9 @@
 		"webpack": "^4.42.1"
 	},
 	"devDependencies": {
-		"@constgen/eslint": "1.1.0",
-		"eslint": "6.8.0",
-		"neutrino": "9.1.0",
+		"@constgen/eslint": "2.2.0",
+		"eslint": "7.7.0",
+		"neutrino": "9.3.0",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
 		"vue": "^2.6.11"

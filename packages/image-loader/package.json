@@ -1,6 +1,6 @@
 {
 	"name": "@constgen/neutrino-image-loader",
-	"version": "1.0.2",
+	"version": "1.5.0",
 	"description": "Neutrino middleware for image files",
 	"main": "index.js",
 	"author": "Constantine Genchevsky <const.gen@gmail.com>",
@@ -24,7 +24,8 @@
 		"url-loader": "4.0.0"
 	},
 	"peerDependencies": {
-		"neutrino": "^9.0.0"
+		"neutrino": "^9.0.0",
+		"webpack": "^4.0.0"
 	},
 	"files": [
 		"**/*.js",

@@ -1,14 +1,14 @@
 let cssSourcemap = require('./css-sourcemap')
-let jsSourcemap = require('./js-sourcemap')
+let jsSourcemap  = require('./js-sourcemap')
 
-module.exports = function ({ prod = false, dev = true } = {}) {
+module.exports = function (settings) {
 	return function (neutrino) {
-		let devMode = neutrino.config.get('mode') === 'development'
+		let developmentMode = neutrino.config.get('mode') === 'development'
 
-		neutrino.use(cssSourcemap({ prod, dev }))
-		neutrino.use(jsSourcemap({ prod, dev }))
+		neutrino.use(cssSourcemap(settings))
+		neutrino.use(jsSourcemap(settings))
 		neutrino.config
-			.when(devMode, function (config) {
+			.when(developmentMode, function (config) {
 				config
 					.module
 						.rule('source-map')

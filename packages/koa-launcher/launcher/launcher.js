@@ -3,7 +3,7 @@ let http = require(__http__) // eslint-disable-line no-undef
 let chalk = require('chalk')
 
 let sslSettings = require('./ssl-settings')
-let ip = require('./ip')
+let ip          = require('./ip')
 let {
 	warn, output, log, report, blank
 } = require('./print')
@@ -16,13 +16,13 @@ function requireKoaApp () {
 }
 
 const KILL_TIMEOUT = 10000
-const killSignals = Object.freeze(['SIGINT', 'SIGTERM', 'SIGBREAK', 'SIGHUP'])
-const HTTP_PORT = 80
-const HTTPS_PORT = 443
-let defaultPort = sslSettings ? HTTPS_PORT : HTTP_PORT
-let currentApp = requireKoaApp()
-let sockets = new Set()
-let requestsCount = Symbol('requests count')
+const killSignals  = Object.freeze(['SIGINT', 'SIGTERM', 'SIGBREAK', 'SIGHUP'])
+const HTTP_PORT    = 80
+const HTTPS_PORT   = 443
+let defaultPort    = sslSettings ? HTTPS_PORT : HTTP_PORT
+let currentApp     = requireKoaApp()
+let sockets        = new Set()
+let requestsCount  = Symbol('requests count')
 
 let server = ((sslSettings && http.createSecureServer) || http.createServer)(sslSettings, currentApp).listen(
 	{ port: process.env.PORT, host: process.env.HOST },
@@ -32,9 +32,9 @@ let server = ((sslSettings && http.createSecureServer) || http.createServer)(ssl
 		}
 		else {
 			let { port, address } = server.address()
-			let protocol = sslSettings ? 'https' : 'http'
-			let ips = ip.isLocal(address) ? ip.locals : ip.all
-			let message = ['Server started on:']
+			let protocol          = sslSettings ? 'https' : 'http'
+			let ips               = ip.isLocal(address) ? ip.locals : ip.all
+			let message           = ['Server started on:']
 				.concat(ips.map(function (host) {
 					return chalk.green(`${protocol}://${host}${port === defaultPort ? '' : `:${port}`}`)
 				})).join('\n  ')
@@ -61,11 +61,11 @@ function disconnect (socket) {
 }
 
 function close () {
-	output('Server shutting down...')
+	output('Server shutting down…')
 
 	let timeout = setTimeout(function () {
 		report('Server killed, due to timeout')
-		process.exit(1) // eslint-disable-line no-process-exit
+		process.exit(1) // eslint-disable-line node/no-process-exit
 	}, KILL_TIMEOUT)
 
 	server.close(function () {
@@ -116,7 +116,7 @@ if (module.hot) {
 			process.removeListener(signal, close)
 		})
 		process.removeListener('exit', handleExit)
-		output('Server stopped. Restarting...')
+		output('Server stopped. Restarting…')
 		server.close()
 	})
 }

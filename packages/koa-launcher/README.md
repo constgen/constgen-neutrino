@@ -60,7 +60,7 @@ let koaLauncher = require('@constgen/neutrino-koa-launcher')
 neutrino.use(koaLauncher({
    port: undefined, // Set default port
    http: 1, // Set HTTP version
-   ssl: undefined // Set SSL certificates
+   ssl : undefined // Set SSL certificates
 }))
 ```
 
@@ -130,7 +130,7 @@ You can provide paths to own SSL certificate and a public key
 koaLauncher({
    ssl: {
       cert: path.resolve(__dirname, './ssl/ssl.cert'),
-      key: path.resolve(__dirname, './ssl/ssl.key')
+      key : path.resolve(__dirname, './ssl/ssl.key')
    }
 })
 ```
