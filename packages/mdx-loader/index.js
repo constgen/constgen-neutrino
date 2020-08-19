@@ -4,8 +4,8 @@ module.exports = function () {
 	return function (neutrino) {
 		const LOADER_EXTENSIONS = /\.mdx$/
 		let mdxLoader           = require.resolve('mdx-loader')
-		let compileRule         = neutrino.config.module.rule('compile')
-		let compileExtensions   = arrify(compileRule.get('test')).concat(LOADER_EXTENSIONS)
+		let compileRule         = neutrino.config.module.rules.get('compile')
+		let compileExtensions   = compileRule && arrify(compileRule.get('test')).concat(LOADER_EXTENSIONS)
 
 		neutrino.options.extensions.push('mdx')
 
@@ -17,15 +17,11 @@ module.exports = function () {
 					.end()
 				.end()
 			.module
-
-				// .when(compileRule, function (module) {
-				// 	module.rule('compile')
-				// 		.test(compileExtensions)
-				// 		.end()
-				// })
-				.rule('compile')
-					.test(compileExtensions)
-					.end()
+				.when(compileRule, function (module) {
+					module.rule('compile')
+						.test(compileExtensions)
+						.end()
+				})
 				.rule('markdown-jsx')
 					.test(LOADER_EXTENSIONS)
 					.use('mdx')
