@@ -1,10 +1,17 @@
 let deepmerge   = require('deepmerge')
 let styleMinify = require('@neutrinojs/style-minify')
 
+function MiB (size) {
+	const KIB       = 1024
+	const MIB_POWER = 2
+
+	return Number(size) * Math.pow(KIB, MIB_POWER)
+}
+
 module.exports = function (customSettings = {}) {
 	return function (neutrino) {
-		const SIZE_2MB         = 2000000
-		const SIZE_4MB         = 4000000
+		const MAX_ASSET_SIZE   = MiB`2` // eslint-disable-line const-case/uppercase
+		const MAX_ENTRY_SIZE   = MiB`4` // eslint-disable-line const-case/uppercase
 		const NODE_MODULES_EXP = /[/\\]node_modules[/\\]/i
 		let developmentMode    = neutrino.config.get('mode') === 'development'
 		let productionMode     = !developmentMode
@@ -23,10 +30,13 @@ module.exports = function (customSettings = {}) {
 		neutrino.config
 			.performance
 				.hints('warning')
-				.maxAssetSize(SIZE_2MB)
-				.maxEntrypointSize(SIZE_4MB)
+				.maxAssetSize(MAX_ASSET_SIZE)
+				.maxEntrypointSize(MAX_ENTRY_SIZE)
 				.assetFilter(fileName => fileName.endsWith('.js') || fileName.endsWith('.css') || fileName.endsWith('.html'))
 				.when(targetIsNode, function (performance) {
+					performance.hints(false)
+				})
+				.when(developmentMode, function (performance) {
 					performance.hints(false)
 				})
 				.end()
@@ -55,7 +65,7 @@ module.exports = function (customSettings = {}) {
 							name   : 'vendor',
 							chunks : 'initial',
 							enforce: true,
-							maxSize: SIZE_2MB
+							maxSize: MAX_ASSET_SIZE
 						},
 						async_vendor: {
 							test              : NODE_MODULES_EXP,
@@ -63,7 +73,7 @@ module.exports = function (customSettings = {}) {
 							chunks            : 'async',
 							reuseExistingChunk: true,
 							enforce           : true,
-							maxSize           : SIZE_2MB
+							maxSize           : MAX_ASSET_SIZE
 						},
 						common: {
 							// idHint: 'common',
@@ -71,7 +81,7 @@ module.exports = function (customSettings = {}) {
 							chunks            : 'all',
 							minChunks         : 2,
 							reuseExistingChunk: true,
-							maxSize           : SIZE_2MB
+							maxSize           : MAX_ASSET_SIZE
 						}
 
 						// config: {

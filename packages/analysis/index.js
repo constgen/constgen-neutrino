@@ -25,9 +25,7 @@ module.exports = function (customSettings = {}) {
 					defaultSizes     : 'parsed',
 					openAnalyzer     : false,
 					generateStatsFile: false,
-					statsFilename    : 'stats.json',
-
-					// statsOptions     : { excludeAssets: [/\.map$/] },
+					statsFilename    : 'bundle-stats.json',
 					excludeAssets (assetName) {
 						const HMR_PATCH_EXP = /hot-update\.js$/
 

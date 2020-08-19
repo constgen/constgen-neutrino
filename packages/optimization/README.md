@@ -14,6 +14,7 @@
 - Max size chunks splitting
 - JS minification
 - CSS minification
+- Performance warnings on production only
 
 ## Requirements
 
