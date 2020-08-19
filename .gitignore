@@ -36,5 +36,7 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
+# Custom
 package-lock.json
 yarn.lock
+*.pem
