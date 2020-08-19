@@ -1,6 +1,6 @@
 {
 	"name": "@constgen/neutrino-koa-launcher",
-	"version": "1.5.0",
+	"version": "1.6.0",
 	"description": "Neutrino middleware for an automatic Koa application launching in a server with hot reload",
 	"main": "index.js",
 	"author": "Constantine Genchevsky <const.gen@gmail.com>",
