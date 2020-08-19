@@ -26,6 +26,8 @@ module.exports = function (customSettings = {}) {
 					openAnalyzer     : false,
 					generateStatsFile: false,
 					statsFilename    : 'bundle-stats.json',
+
+					// statsOptions     : { }, // https://webpack.js.org/configuration/stats/
 					excludeAssets (assetName) {
 						const HMR_PATCH_EXP = /hot-update\.js$/
 
