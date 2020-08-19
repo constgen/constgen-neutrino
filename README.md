@@ -1,4 +1,4 @@
-# Neutrino Less loader middleware
+# Neutrino middlewares
 
 [![Build Status](https://travis-ci.com/constgen/constgen-neutrino.svg?branch=master)](https://travis-ci.com/constgen/constgen-neutrino)
 
