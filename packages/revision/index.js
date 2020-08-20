@@ -1,6 +1,7 @@
 let GitRevisionPlugin = require('git-revision-webpack-plugin')
 let { DefinePlugin }  = require('webpack')
 let envCi             = require('env-ci')
+let checkGit          = require('check-git')
 
 let {
 	isCi: inCIEnvironment, branch, isPr: duringPR, tag, prBranch
@@ -31,8 +32,9 @@ module.exports = function () {
 		}
 		let inGitEnvironment = false
 
+		 // catch erros when Git is initialized but no commits are made
 		try {
-			let gitRevisionPlugin = new GitRevisionPlugin(revisionOptions)
+			let gitRevisionPlugin = checkGit(process.cwd()) && new GitRevisionPlugin(revisionOptions)
 
 			env.VERSION      = gitRevisionPlugin.version()
 			env.COMMITHASH   = gitRevisionPlugin.commithash()
