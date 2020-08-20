@@ -1,6 +1,6 @@
 {
 	"name": "@constgen/neutrino-react-loader",
-	"version": "1.5.0",
+	"version": "1.7.0",
 	"description": "Neutrino middleware for React files",
 	"main": "index.js",
 	"author": "Constantine Genchevsky <const.gen@gmail.com>",
@@ -21,6 +21,7 @@
 		"jsx"
 	],
 	"dependencies": {
+		"@babel/core": "^7.0.0",
 		"@babel/preset-react": "7.9.4",
 		"@constgen/neutrino-babel-loader": "workspace:1.5.0",
 		"babel-merge": "3.0.0",

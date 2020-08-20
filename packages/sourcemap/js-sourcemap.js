@@ -22,7 +22,10 @@ module.exports = function ({ prod: production = false, dev: development = true }
 		}
 
 		if (targetIsNode && sourcemapsEnabled) {
-			neutrino.use(banner({ pluginId: 'sourcemaps' }))
+			neutrino.use(banner({
+				pluginId: 'sourcemaps',
+				banner  : `require(${JSON.stringify(require.resolve('source-map-support'))}).install();`
+			 }))
 		}
 
 		neutrino.config
