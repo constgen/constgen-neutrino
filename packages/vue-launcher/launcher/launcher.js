@@ -9,8 +9,8 @@ if (!rootElement) {
 	document.body.appendChild(rootElement)
 }
 
-rootElement.style.width  = '100%'
-rootElement.style.height = '100%'
+rootElement.style.display = 'block'
+rootElement.style.height  = '100%'
 
 new Vue({
 	el  : rootElement,

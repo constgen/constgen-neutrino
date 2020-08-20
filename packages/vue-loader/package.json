@@ -1,6 +1,6 @@
 {
 	"name": "@constgen/neutrino-vue-loader",
-	"version": "1.5.0",
+	"version": "1.7.0",
 	"description": "Neutrino middleware for Vue files",
 	"main": "index.js",
 	"author": "Constantine Genchevsky <const.gen@gmail.com>",
@@ -21,12 +21,14 @@
 		"jsx"
 	],
 	"dependencies": {
+		"@babel/core": "^7.0.0",
 		"@constgen/neutrino-babel-loader": "workspace:1.5.0",
 		"babel-merge": "3.0.0",
 		"deepmerge": "4.2.2",
 		"vue-loader": "15.9.3",
 		"vue-style-loader": "4.1.2",
 		"vue-template-compiler": "^2.6.0",
+		"css-loader": "*",
 		"babel-plugin-transform-vue-jsx": "4.0.1",
 		"babel-helper-vue-jsx-merge-props": "2.0.3"
 	},
