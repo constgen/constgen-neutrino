@@ -1,3 +1,5 @@
+let path = require('path')
+
 let compileLoader          = require('@neutrinojs/compile-loader')
 let babelMerge             = require('babel-merge')
 let deepmerge              = require('deepmerge')
@@ -23,6 +25,7 @@ module.exports = function (customSettings = {}) {
 			.resolve
 				.alias
 					.set('core-js', require.resolve('core-js').replace(/index\.js$/, ''))
+					.set('regenerator-runtime', require.resolve('regenerator-runtime').replace(/runtime\.js$/, ''))
 					.end()
 				.end()
 			.module
@@ -47,14 +50,22 @@ module.exports = function (customSettings = {}) {
 							[require.resolve('@babel/plugin-proposal-class-properties'), {
 								loose: true
 							}],
-							require.resolve('babel-plugin-smart-webpack-import')
-						],
+							require.resolve('babel-plugin-smart-webpack-import'),
+							!settings.polyfills && [require.resolve('@babel/plugin-transform-runtime'), {
+								corejs         : false,
+								helpers        : true,
+								version        : require('@babel/runtime/package.json').version,
+								regenerator    : true,
+								useESModules   : false,
+								absoluteRuntime: path.dirname(require.resolve('@babel/runtime/package.json'))
+							}]
+						].filter(Boolean),
 						presets: [
 							[
 								require.resolve('@babel/preset-env'),
 								{
 									debug      : neutrino.options.debug,
-									targets    : settings.targets,
+									targets    : testEnv ? { node: 'current' } : settings.targets,
 									spec       : false,
 									modules    : testEnv ? 'auto' : false,
 									useBuiltIns: settings.polyfills ? 'usage' : false,
