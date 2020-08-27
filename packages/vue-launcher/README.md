@@ -5,7 +5,7 @@
 
 [Neutrino](https://neutrino.js.org) middleware for an automatic Vue application launching in a browser document with hot reload
 
-Using this middleware you no longer need to bootstrap HMR and app mounting. It is done automatically. The only thing you need is to only export the main JSX component in your main application component (entry file)
+Using this middleware you no longer need to bootstrap HMR and app mounting. It is done automatically. You don't have to create `new Vue` instance. The only thing you need is to only export a Vue component in your main application component (entry file)
 
 **src/index.vue**
 
@@ -15,10 +15,34 @@ Using this middleware you no longer need to bootstrap HMR and app mounting. It i
 </template>
 ```
 
+If you use Vue Router, Vuex or other tools you can export a component config as an object
+
+**src/index.js**
+
+```js
+import VueRouter from 'vue-router'
+import Vuex from 'vuex'
+
+let router = new VueRouter({})
+let store  = new Vuex.Store({})
+
+Vue.use(VueRouter)
+Vue.use(Vuex)
+
+export default {
+   router,
+   store,
+   render (createElement) {
+      return createElement('h1', {}, ['Root component'])
+   }
+}
+```
+
 ## Features
 
 - Enabled Hot Module Replacement with source-watching during development
 - Disabled redundant `[HMR]` console messages
+- Notify in the console about development mode in production environment
 
 ## Requirements
 

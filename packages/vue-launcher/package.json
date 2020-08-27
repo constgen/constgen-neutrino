@@ -1,6 +1,6 @@
 {
 	"name": "@constgen/neutrino-vue-launcher",
-	"version": "1.7.0",
+	"version": "1.8.0",
 	"description": "Neutrino middleware for an automatic Vue application launching in a browser document with hot reload",
 	"main": "index.js",
 	"author": "Constantine Genchevsky <const.gen@gmail.com>",
