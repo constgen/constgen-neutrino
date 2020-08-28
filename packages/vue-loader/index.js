@@ -27,7 +27,14 @@ module.exports = function (customSettings = {}) {
 				targets  : settings.browsers ? { browsers: settings.browsers } : {},
 				babel    : babelMerge(
 					{
-						plugins: [require.resolve('babel-plugin-transform-vue-jsx')]
+						presets: [
+							[require.resolve('@vue/babel-preset-jsx'), {
+								functional: true,
+								injectH   : true,
+								vModel    : true,
+								vOn       : true
+							}]
+						]
 					},
 					settings.babel
 				)

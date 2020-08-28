@@ -16,6 +16,7 @@ This middleware enables many features by default with zero configuration
 - Class properties
 - Babel transpilation according to browserlist
 - EcmaScript polyfills
+- JSX syntax
 - Automatic Vue pragma injection to every JSX fragment
 
 ## Requirements
@@ -23,6 +24,7 @@ This middleware enables many features by default with zero configuration
 - Node.js v10+
 - Neutrino v9
 - Webpack v4
+- Vue 2
 
 ## Installation
 
@@ -72,4 +74,48 @@ module.exports = {
       vueLoader()
    ]
 }
+```
+
+## JSX
+
+JSX syntax is supported with some syntactic sugar. For more details look at https://github.com/vuejs/jsx.
+
+To use JSX you can just return JSX expressions from arrow functions or Vue Component `render()` method.
+
+**src/Heading.vue**
+
+```vue
+<script>
+export default ({ props, listeners, children }) => {
+   let onClick = listeners.click || function () {}
+
+   return (
+      <h1 id={props.id}>
+         <a href="##" onClick={onClick}>
+            {children}
+         </a>
+      </h1>
+   )
+}
+</script>
+```
+
+**src/index.vue**
+
+```vue
+<script>
+import Heading from './Heading'
+
+export default {
+   name: 'Index',
+   render () {
+      return (
+         <div>
+            <Heading>Hello</Heading>
+            {this.$children}
+         </div>
+      )
+   }
+}
+</script>
 ```
