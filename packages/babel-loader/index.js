@@ -64,12 +64,13 @@ module.exports = function (customSettings = {}) {
 							[
 								require.resolve('@babel/preset-env'),
 								{
-									debug      : neutrino.options.debug,
-									targets    : testEnv ? { node: 'current' } : settings.targets,
-									spec       : false,
-									modules    : testEnv ? 'auto' : false,
-									useBuiltIns: settings.polyfills ? 'usage' : false,
-									bugfixes   : true,
+									debug           : neutrino.options.debug,
+									targets         : testEnv ? { node: 'current' } : settings.targets,
+									spec            : false,
+									modules         : testEnv ? 'auto' : false,
+									useBuiltIns     : settings.polyfills ? 'usage' : false,
+									shippedProposals: true,
+									bugfixes        : true,
 									...(settings.polyfills && { corejs })
 								}
 							],
