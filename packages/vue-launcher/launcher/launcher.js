@@ -22,12 +22,7 @@ else {
 		el  : rootElement,
 		name: 'Launcher',
 		render (createElement) {
-			return createElement('div', {
-				style: {
-					display: 'block',
-					height : '100%'
-				}
-			}, [createElement(Entry)])
+			return createElement(Entry)
 		}
 	})
 }
