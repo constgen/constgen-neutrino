@@ -5,6 +5,12 @@
 
 [Neutrino](https://neutrino.js.org) middleware for SVG files. SVG files are compiled to Data URIs **without*- encoding to Base64. For JSX components SVG elements ids are extended with unique prefixes to avoid collisions between inlined `<svg>` images.
 
+## Features
+
+- Automatically exclude `.svg` extension from `image` rule if present
+- Enable usage of query parameters in SVG paths for compilation time image processing (e.g. `image.svg?fill=currentColor`) with [svg-transform-loader](https://www.npmjs.com/package/svg-transform-loader)
+- Encode SVGs to DataURI when imported from JS or Components with [svg-url-loader](https://www.npmjs.com/package/svg-url-loader)
+
 ## Requirements
 
 - Node.js v10+
