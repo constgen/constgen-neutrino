@@ -4,8 +4,8 @@ const IMAGE_EXTENSIONS = /\.(ico|png|jpe?g|gif|webp|bmp|(ico|png|jpe?g|gif|webp|
 
 module.exports = function (customSettings = {}) {
 	return function (neutrino) {
-		let productionMode  = neutrino.config.get('mode') !== 'development'
-		let urlLoader       = require.resolve('url-loader')
+		let productionMode  = neutrino.config.get('mode') === 'production'
+		let urlLoaderPath   = require.resolve('url-loader')
 		let defaultSettings = {
 			limit: 10000
 		}
@@ -21,7 +21,7 @@ module.exports = function (customSettings = {}) {
 				.rule('image')
 					.test(IMAGE_EXTENSIONS)
 					.use('url')
-						.loader(urlLoader)
+						.loader(urlLoaderPath)
 						.options({
 							limit: settings.limit,
 							outputPath,
