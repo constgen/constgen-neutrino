@@ -5,14 +5,16 @@ let encodeQuery = require('./encode-query-loader')
 module.exports = function () {
 	return function (neutrino) {
 		const CSS_EXTENSIONS       = /\.(css|less|sass|scss|pcss|styl)$/i
-		const SVG_EXTENSIONS       = /\.(svg|svg\?v=\d+\.\d+\.\d+)$/i
+		const SVG_EXTENSIONS       = /\.svg$/i
+		const SVG_QUERY            = /^\?.*/
 		let svgUrlLoaderPath       = require.resolve('svg-url-loader')
 		let svgInlineLoaderPath    = require.resolve('svg-inline-loader')
 		let extractLoaderPath      = require.resolve('extract-loader')
 		let svgTransformLoaderPath = require.resolve('svg-transform-loader')
 		let productionMode         = neutrino.config.get('mode') !== 'development'
 		let outputPath             = productionMode ? 'images' : undefined
-		let name                   = productionMode ? '[name].[hash:8].[ext]' : '[path][name].[hash:8].[ext]'
+		let name                   = productionMode ? '[name].[hash:8].[ext]' : '[path][name].[ext]'
+		let hashedName             = productionMode ? name : '[path][name].[hash:8].[ext]'
 
 		neutrino.use(encodeQuery())
 
@@ -30,19 +32,34 @@ module.exports = function () {
 				.test(SVG_EXTENSIONS)
 				.oneOf('style')
 					.set('issuer', CSS_EXTENSIONS)
-					.use('url-svg')
-						.loader(svgUrlLoaderPath)
-						.options({
-							outputPath,
-							name,
-							limit            : 1,
-							noquotes         : false,
-							stripdeclarations: true
-						})
+					.oneOf('url-query')
+						.resourceQuery(SVG_QUERY)
+						.use('url-svg')
+							.loader(svgUrlLoaderPath)
+							.options({
+								outputPath,
+								name             : hashedName,
+								limit            : 1,
+								noquotes         : false,
+								stripdeclarations: true
+							})
+							.end()
+						.use('transform-svg')
+							.loader(svgTransformLoaderPath)
+							.options({ raw: true })
+							.end()
 						.end()
-					.use('transform-svg')
-						.loader(svgTransformLoaderPath)
-						.options({ raw: true })
+					.oneOf('url')
+						.use('url-svg')
+							.loader(svgUrlLoaderPath)
+							.options({
+								outputPath,
+								name,
+								limit            : 1,
+								noquotes         : false,
+								stripdeclarations: true
+							})
+							.end()
 						.end()
 					.end()
 				.oneOf('text')
@@ -68,9 +85,12 @@ module.exports = function () {
 							idPrefix         : true
 						 })
 						.end()
-					.use('transform-svg')
-						.loader(svgTransformLoaderPath)
-						.options({ raw: true })
+					.oneOf('url-svg-query')
+						.resourceQuery(SVG_QUERY)
+						.use('transform-svg')
+							.loader(svgTransformLoaderPath)
+							.options({ raw: true })
+							.end()
 						.end()
 					.end()
 				.end()

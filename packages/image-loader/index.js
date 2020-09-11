@@ -1,6 +1,6 @@
 let deepmerge = require('deepmerge')
 
-const IMAGE_EXTENSIONS = /\.(ico|png|jpe?g|gif|webp|bmp|(ico|png|jpe?g|gif|webp|bmp)\?v=\d+\.\d+\.\d+)$/i
+const IMAGE_EXTENSIONS = /\.(ico|png|jpe?g|gif|webp|bmp)$/i
 
 module.exports = function (customSettings = {}) {
 	return function (neutrino) {
