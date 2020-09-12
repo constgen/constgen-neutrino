@@ -13,6 +13,7 @@ module.exports = function (customSettings = {}) {
 			babel    : {},
 			polyfills: false,
 			browsers : customSettings.browsers ? undefined : ['defaults'],
+			node     : undefined,
 			include  : [],
 			exclude  : []
 		}
@@ -24,8 +25,11 @@ module.exports = function (customSettings = {}) {
 				include  : settings.include,
 				exclude  : settings.exclude,
 				polyfills: settings.polyfills,
-				targets  : settings.browsers ? { browsers: settings.browsers } : {},
-				babel    : babelMerge(
+				targets  : {
+					...(settings.browsers && { browsers: settings.browsers }),
+					...(settings.node && { node: settings.node })
+				},
+				babel: babelMerge(
 					{
 						presets: [
 							[require.resolve('@vue/babel-preset-jsx'), {

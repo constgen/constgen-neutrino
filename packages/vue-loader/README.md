@@ -47,6 +47,7 @@ neutrino.use(vueLoader({
    babel    : {}, // custom Babel options
    polyfills: false, // enable EcmaScript polyfills
    browsers : ['defaults'], // replace browserlist config
+   node     : undefined, // node version in case of server rendering
    include  : [], // include strategy is always used and you can only extend what is included besides `neutrino.options.source` and `neutrino.options.tests`
    exclude  : [] // exclude something from processing that is included
 }))

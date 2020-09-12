@@ -1,6 +1,6 @@
 {
 	"name": "@constgen/neutrino-vue-loader",
-	"version": "1.8.0",
+	"version": "1.9.0",
 	"description": "Neutrino middleware for Vue files",
 	"main": "index.js",
 	"author": "Constantine Genchevsky <const.gen@gmail.com>",
