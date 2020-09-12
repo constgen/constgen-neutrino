@@ -1,6 +1,6 @@
 {
 	"name": "@constgen/neutrino-vue-loader",
-	"version": "1.9.0",
+	"version": "1.9.1",
 	"description": "Neutrino middleware for Vue files",
 	"main": "index.js",
 	"author": "Constantine Genchevsky <const.gen@gmail.com>",
@@ -22,7 +22,7 @@
 	],
 	"dependencies": {
 		"@babel/core": "^7.0.0",
-		"@constgen/neutrino-babel-loader": "workspace:1.9.0",
+		"@constgen/neutrino-babel-loader": "workspace:1.9.1",
 		"@vue/babel-preset-jsx": "1.1.2",
 		"babel-merge": "3.0.0",
 		"deepmerge": "4.2.2",
