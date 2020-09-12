@@ -1,6 +1,6 @@
 {
 	"name": "@constgen/neutrino-node-loader",
-	"version": "1.5.0",
+	"version": "1.9.0",
 	"description": "Neutrino middleware for native Node modules",
 	"main": "index.js",
 	"author": "Constantine Genchevsky <const.gen@gmail.com>",

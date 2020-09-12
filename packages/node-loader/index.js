@@ -1,5 +1,8 @@
 module.exports = function () {
 	return function (neutrino) {
+		let productionMode = neutrino.config.get('mode') === 'production'
+		let name           = productionMode ? '[name].[hash:8].[ext]' : '[path][name].[ext]'
+
 		neutrino.config
 			.module
 				.rule('node')
@@ -7,7 +10,7 @@ module.exports = function () {
 					.use('native-addon')
 						.loader(require.resolve('native-addon-loader'))
 						.options({
-							name: '[name]-[hash].[ext]'
+							name
 						})
 						.end()
 					.end()
