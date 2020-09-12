@@ -1,6 +1,6 @@
 {
 	"name": "@constgen/neutrino-analysis",
-	"version": "1.5.0",
+	"version": "1.9.0",
 	"description": "Neutrino middleware that adds bundle analysis tools",
 	"main": "index.js",
 	"author": "Constantine Genchevsky <const.gen@gmail.com>",
@@ -21,9 +21,9 @@
 		"bundle"
 	],
 	"dependencies": {
-		"@constgen/neutrino-dependency": "workspace:1.5.0",
+		"@constgen/neutrino-dependency": "workspace:1.9.0",
 		"deepmerge": "4.2.2",
-		"webpack-bundle-analyzer": "3.6.1"
+		"webpack-bundle-analyzer": "3.8.0"
 	},
 	"peerDependencies": {
 		"neutrino": "^9.0.0",
