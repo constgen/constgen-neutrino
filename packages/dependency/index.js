@@ -1,10 +1,11 @@
 let CircularDependencyPlugin      = require('circular-dependency-plugin')
 let DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin')
+let CaseSensitivePathsPlugin      = require('case-sensitive-paths-webpack-plugin')
 
 module.exports = function () {
 	return function (neutrino) {
 		neutrino.config
-			.plugin('depend')
+			.plugin('circular')
 				.use(CircularDependencyPlugin, [{
 					exclude         : /node_modules/,
 					failOnError     : false,
@@ -12,12 +13,17 @@ module.exports = function () {
 					cwd             : process.cwd()
 				}])
 				.end()
-			.plugin('depend')
+			.plugin('duplicate')
 				.use(DuplicatePackageCheckerPlugin, [{
 					verbose  : true,
 					emitError: false,
 					showHelp : true,
 					strict   : true
+				}])
+				.end()
+			.plugin('case-sense')
+				.use(CaseSensitivePathsPlugin, [{
+					debug: neutrino.options.debug
 				}])
 				.end()
 	}

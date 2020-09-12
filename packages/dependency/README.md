@@ -11,6 +11,7 @@ You may want to use [`@constgen/neutrino-analysis`](https://github.com/constgen/
 
 - Detect and warn about circular dependencies during the build time
 - Detect and warn about duplicated dependencies during the build time
+- Enforce the entire path of all required modules match exact case of the actual path on disk
 
 ## Requirements
 
