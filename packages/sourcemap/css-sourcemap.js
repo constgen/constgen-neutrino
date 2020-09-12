@@ -1,5 +1,5 @@
 function isConfigurable (use) {
-	const COMPATIBLE_NAME_EXPRESSION = /^(css|less|sass|postcss)$/i
+	const COMPATIBLE_NAME_EXPRESSION = /^(css|less|sass|postcss|stylus)$/i
 
 	return COMPATIBLE_NAME_EXPRESSION.test(use.name)
 }
@@ -7,9 +7,12 @@ function isConfigurable (use) {
 module.exports = function ({ prod: production = false, dev: development = true } = {}) {
 	return function (neutrino) {
 		let developmentMode      = neutrino.config.get('mode') === 'development'
+		let productionMode       = !developmentMode
 		let productionSourcemap  = Boolean(production)
 		let developmentSourcemap = Boolean(development)
-		let sourceMap            = Boolean(developmentMode && developmentSourcemap) || Boolean(productionSourcemap)
+		let sourceMap            = Boolean(
+			(developmentMode && developmentSourcemap) || (productionMode && productionSourcemap)
+		)
 		let styleRule            = neutrino.config.module.rules.get('style')
 
 		function configureSourceMap (use) {

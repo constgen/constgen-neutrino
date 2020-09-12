@@ -1,6 +1,6 @@
 {
 	"name": "@constgen/neutrino-sourcemap",
-	"version": "1.7.0",
+	"version": "1.9.0",
 	"description": "Neutrino middleware to configure source maps in JS and CSS",
 	"main": "index.js",
 	"author": "Constantine Genchevsky <const.gen@gmail.com>",
