@@ -67,6 +67,7 @@ module.exports = function (customSettings = {}) {
 									debug           : neutrino.options.debug,
 									targets         : testEnv ? { node: 'current' } : settings.targets,
 									spec            : false,
+									loose           : true,
 									modules         : testEnv ? 'auto' : false,
 									useBuiltIns     : settings.polyfills ? 'usage' : false,
 									shippedProposals: true,

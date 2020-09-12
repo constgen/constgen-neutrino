@@ -1,6 +1,6 @@
 {
 	"name": "@constgen/neutrino-babel-loader",
-	"version": "1.9.0",
+	"version": "1.9.1",
 	"description": "Neutrino middleware for enabling the ESNext transpilation",
 	"main": "index.js",
 	"author": "Constantine Genchevsky <const.gen@gmail.com>",
