@@ -1,5 +1,6 @@
-let deepmerge   = require('deepmerge')
-let styleMinify = require('@neutrinojs/style-minify')
+let deepmerge = require('deepmerge')
+
+let cssOptimization = require('./css-optimization')
 
 function MiB (size) {
 	const KIB       = 1024
@@ -24,8 +25,7 @@ module.exports = function (customSettings = {}) {
 
 		// https://linguinecode.com/post/reduce-css-file-size-webpack-tree-shaking
 
-		// https://www.npmjs.com/package/optimize-css-assets-webpack-plugin
-		if (settings.minimize) neutrino.use(styleMinify())
+		if (settings.minimize) neutrino.use(cssOptimization())
 
 		neutrino.config
 			.performance
