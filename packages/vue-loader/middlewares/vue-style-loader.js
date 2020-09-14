@@ -1,9 +1,8 @@
 module.exports = function () {
 	return function (neutrino) {
-		let vueStyleLoaderPath    = require.resolve('vue-style-loader')
-		let styleRule             = neutrino.config.module.rules.get('style')
-		let styleUse              = styleRule && styleRule.uses.get('style')
-		let normalStyleExtensions = styleRule.oneOf('normal').get('test')
+		let vueStyleLoaderPath = require.resolve('vue-style-loader')
+		let styleRule          = neutrino.config.module.rules.get('style')
+		let styleUse           = styleRule && styleRule.uses.get('style')
 
 		if (styleUse) {
 			styleUse.loader(vueStyleLoaderPath)
@@ -22,22 +21,21 @@ module.exports = function () {
 				})
 
 			moduleOneOfs
-				.filter(oneOf => oneOf.uses.get('style'))
 				.forEach(function (oneOf) {
 					styleRule
 						.oneOf(`vue-${oneOf.name}`)
 							.before(oneOf.name)
-							.test(normalStyleExtensions)
-							.resourceQuery(/module/)
-							.batch(function (rule) {
+							.resourceQuery(/^\?vue&.*?module=true/)
+							.batch(function (vueOneOf) {
 								oneOf.uses.values().forEach(function (use) {
-									rule.use(use.name).merge(use.entries())
+									vueOneOf
+										.use(use.name)
+											.merge(use.entries())
+											.when(use.name === 'style', function (vueUse) {
+												vueUse.loader(vueStyleLoaderPath)
+											})
 								})
 							})
-							.use('style')
-								.loader(vueStyleLoaderPath)
-								.end()
-							.end()
 				})
 		 }
 	}
