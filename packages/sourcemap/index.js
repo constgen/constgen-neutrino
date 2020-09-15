@@ -1,5 +1,5 @@
-let cssSourcemap = require('./css-sourcemap')
-let jsSourcemap  = require('./js-sourcemap')
+let cssSourcemap = require('./middlewares/css-sourcemap')
+let jsSourcemap  = require('./middlewares/js-sourcemap')
 
 module.exports = function (settings) {
 	return function (neutrino) {

@@ -1,6 +1,6 @@
 {
 	"name": "@constgen/neutrino-svg-loader",
-	"version": "1.9.0",
+	"version": "1.9.1",
 	"description": "Neutrino middleware for SVG files",
 	"main": "index.js",
 	"author": "Constantine Genchevsky <const.gen@gmail.com>",

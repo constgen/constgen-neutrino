@@ -1,6 +1,6 @@
 let { IMAGE_EXTENSIONS } = require('@constgen/neutrino-image-loader')
 
-let encodeQuery = require('./encode-query-loader')
+let encodeQuery = require('./middlewares/encode-query-loader')
 
 module.exports = function () {
 	return function (neutrino) {
