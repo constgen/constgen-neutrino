@@ -1,6 +1,7 @@
 let deepmerge = require('deepmerge')
 
-let cssOptimization = require('./css-optimization')
+let cssOptimization = require('./middlewares/css-optimization')
+let cssSideEffect   = require('./middlewares/css-side-effect')
 
 function MiB (size) {
 	const KIB       = 1024
@@ -23,8 +24,7 @@ module.exports = function (customSettings = {}) {
 		}
 		let settings           = deepmerge(defaultSettings, customSettings)
 
-		// https://linguinecode.com/post/reduce-css-file-size-webpack-tree-shaking
-
+		neutrino.use(cssSideEffect())
 		if (settings.minimize) neutrino.use(cssOptimization())
 
 		neutrino.config

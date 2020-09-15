@@ -1,6 +1,6 @@
 {
 	"name": "@constgen/neutrino-optimization",
-	"version": "1.6.0",
+	"version": "1.9.1",
 	"description": "Neutrino middleware to configure optimization and minification for production builds",
 	"main": "index.js",
 	"author": "Constantine Genchevsky <const.gen@gmail.com>",

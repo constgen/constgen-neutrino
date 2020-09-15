@@ -9,7 +9,7 @@ module.exports = function () {
 		}
 
 		if (styleRule) {
-			let oneOfs        = styleRule.oneOfs.values().filter(oneOf => oneOf.get('test'))
+			let oneOfs        = styleRule.oneOfs.values()
 			let defaultOneOfs = oneOfs.filter(oneOf => !oneOf.uses.get('css').get('options').modules)
 			let moduleOneOfs  = oneOfs.filter(oneOf => oneOf.uses.get('css').get('options').modules)
 
