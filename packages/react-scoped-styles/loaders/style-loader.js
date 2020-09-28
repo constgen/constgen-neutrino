@@ -2,8 +2,8 @@
 let csstree               = require('css-tree')
 let { SourceMapConsumer } = require('source-map')
 
-let getDirectoryHashFromPath = require('./utils/get-directory-hash-from-path')
-let toUnixPath               = require('./utils/to-unix-path')
+let getDirectoryHashFromPath = require('../utils/get-directory-hash-from-path')
+let toUnixPath               = require('../utils/to-unix-path')
 
 module.exports = function styleLoader (source, sourceMap) {
 	let globalsPrefix                  = this.query.globalsPrefix || 'app'

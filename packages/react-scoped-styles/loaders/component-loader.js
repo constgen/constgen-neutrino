@@ -1,4 +1,4 @@
-let getDirectoryHashFromPath = require('./utils/get-directory-hash-from-path')
+let getDirectoryHashFromPath = require('../utils/get-directory-hash-from-path')
 
 module.exports = function componentLoader (source, sourceMaps) {
 	let { globalsPrefix = 'app' } = this.query
