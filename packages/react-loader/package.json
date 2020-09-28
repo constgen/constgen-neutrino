@@ -24,7 +24,7 @@
 		"@wordpress/babel-plugin-import-jsx-pragma": "2.7.0",
 		"@babel/core": "^7.0.0",
 		"@babel/preset-react": "7.10.4",
-		"@constgen/neutrino-babel-loader": "workspace:1.9.1",
+		"@constgen/neutrino-babel-loader": "workspace:1.9.2",
 		"babel-merge": "3.0.0",
 		"babel-plugin-jsx-pragmatic": "1.0.2",
 		"babel-plugin-transform-jsx-url": "1.0.2",
