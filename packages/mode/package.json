@@ -12,8 +12,8 @@
 	"homepage": "https://github.com/constgen/constgen-neutrino/tree/master/packages/mode",
 	"keywords": [
 		"neutrino",
-		"neutrino-middlware",
-		"middlware",
+		"neutrino-middleware",
+		"middleware",
 		"preset",
 		"webpack",
 		"mode"

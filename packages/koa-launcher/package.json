@@ -12,8 +12,8 @@
 	"homepage": "https://github.com/constgen/constgen-neutrino/tree/master/packages/koa-launcher",
 	"keywords": [
 		"neutrino",
-		"neutrino-middlware",
-		"middlware",
+		"neutrino-middleware",
+		"middleware",
 		"preset",
 		"webpack",
 		"koa",

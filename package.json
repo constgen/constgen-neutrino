@@ -7,10 +7,8 @@
 	"license": "GPL-3.0",
 	"keywords": [
 		"neutrino",
-		"neutrino-middlware",
-		"middlware",
-		"preset",
-		"middlware",
+		"neutrino-middleware",
+		"middleware",
 		"preset",
 		"webpack"
 	],
