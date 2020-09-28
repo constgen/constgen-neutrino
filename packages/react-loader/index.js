@@ -32,7 +32,10 @@ module.exports = function (customSettings = {}) {
 							[require.resolve('babel-plugin-jsx-pragmatic'), {
 								module: 'react',
 								export: 'createElement',
-								import: 'createElement'
+								import: '_jsx'
+							}],
+							[require.resolve('@wordpress/babel-plugin-import-jsx-pragma'), {
+								source: 'react'
 							}],
 							[require.resolve('babel-plugin-transform-jsx-url'), {
 								root : neutrino.options.source,
@@ -56,10 +59,15 @@ module.exports = function (customSettings = {}) {
 						].filter(Boolean),
 						presets: [
 							[require.resolve('@babel/preset-react'), {
-								development: developmentMode,
-								pragma     : 'createElement',
-								useSpread  : true,
-								useBuiltIns: false
+								development     : developmentMode,
+								pragma          : '_jsx',
+								pragmaFrag      : 'React.Fragment',
+								throwIfNamespace: true,
+								useSpread       : true,
+								useBuiltIns     : false
+
+								// runtime         : 'automatic'
+								// importSource: 'react'
 							}]
 						]
 					},
