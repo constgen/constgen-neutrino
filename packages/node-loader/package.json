@@ -1,6 +1,6 @@
 {
 	"name": "@constgen/neutrino-node-loader",
-	"version": "1.9.0",
+	"version": "1.9.2",
 	"description": "Neutrino middleware for native Node modules",
 	"main": "index.js",
 	"author": "Constantine Genchevsky <const.gen@gmail.com>",
@@ -9,7 +9,7 @@
 		"type": "git",
 		"url": "https://github.com/constgen/constgen-neutrino.git"
 	},
-	"homepage": "https://github.com/constgen/constgen-neutrino/packages/node-loader",
+	"homepage": "https://github.com/constgen/constgen-neutrino/tree/master/packages/node-loader",
 	"keywords": [
 		"neutrino",
 		"neutrino-middlware",

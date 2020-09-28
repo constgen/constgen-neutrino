@@ -1,6 +1,6 @@
 {
 	"name": "@constgen/neutrino-static-files",
-	"version": "1.5.0",
+	"version": "1.9.2",
 	"description": "Neutrino middleware for copying of static files of the project",
 	"main": "index.js",
 	"author": "Constantine Genchevsky <const.gen@gmail.com>",
@@ -9,7 +9,7 @@
 		"type": "git",
 		"url": "https://github.com/constgen/constgen-neutrino.git"
 	},
-	"homepage": "https://github.com/constgen/constgen-neutrino/packages/static-files",
+	"homepage": "https://github.com/constgen/constgen-neutrino/tree/master/packages/static-files",
 	"keywords": [
 		"neutrino",
 		"neutrino-middlware",

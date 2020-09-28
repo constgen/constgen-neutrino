@@ -1,6 +1,6 @@
 {
 	"name": "@constgen/neutrino-analysis",
-	"version": "1.9.0",
+	"version": "1.9.2",
 	"description": "Neutrino middleware that adds bundle analysis tools",
 	"main": "index.js",
 	"author": "Constantine Genchevsky <const.gen@gmail.com>",
@@ -9,7 +9,7 @@
 		"type": "git",
 		"url": "https://github.com/constgen/constgen-neutrino.git"
 	},
-	"homepage": "https://github.com/constgen/constgen-neutrino/packages/analysis",
+	"homepage": "https://github.com/constgen/constgen-neutrino/tree/master/packages/analysis",
 	"keywords": [
 		"neutrino",
 		"neutrino-middlware",

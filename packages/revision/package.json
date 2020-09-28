@@ -1,6 +1,6 @@
 {
 	"name": "@constgen/neutrino-revision",
-	"version": "1.7.0",
+	"version": "1.9.2",
 	"description": "Neutrino middleware for versioning of the application based on the Git revision",
 	"main": "index.js",
 	"author": "Constantine Genchevsky <const.gen@gmail.com>",
@@ -9,7 +9,7 @@
 		"type": "git",
 		"url": "https://github.com/constgen/constgen-neutrino.git"
 	},
-	"homepage": "https://github.com/constgen/constgen-neutrino/packages/revision",
+	"homepage": "https://github.com/constgen/constgen-neutrino/tree/master/packages/revision",
 	"keywords": [
 		"neutrino",
 		"neutrino-middlware",

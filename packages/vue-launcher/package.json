@@ -1,6 +1,6 @@
 {
 	"name": "@constgen/neutrino-vue-launcher",
-	"version": "1.8.0",
+	"version": "1.9.2",
 	"description": "Neutrino middleware for an automatic Vue application launching in a browser document with hot reload",
 	"main": "index.js",
 	"author": "Constantine Genchevsky <const.gen@gmail.com>",
@@ -9,7 +9,7 @@
 		"type": "git",
 		"url": "https://github.com/constgen/constgen-neutrino.git"
 	},
-	"homepage": "https://github.com/constgen/constgen-neutrino/packages/vue-launcher",
+	"homepage": "https://github.com/constgen/constgen-neutrino/tree/master/packages/vue-launcher",
 	"keywords": [
 		"neutrino",
 		"neutrino-middlware",

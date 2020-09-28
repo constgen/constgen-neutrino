@@ -9,7 +9,7 @@
 		"type": "git",
 		"url": "https://github.com/constgen/constgen-neutrino.git"
 	},
-	"homepage": "https://github.com/constgen/constgen-neutrino/packages/react-scoped-styles",
+	"homepage": "https://github.com/constgen/constgen-neutrino/tree/master/packages/react-scoped-styles",
 	"keywords": [
 		"neutrino",
 		"neutrino-middlware",

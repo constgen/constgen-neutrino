@@ -1,6 +1,6 @@
 {
 	"name": "@constgen/neutrino-env",
-	"version": "1.0.0",
+	"version": "1.9.2",
 	"description": "Neutrino middleware that exposes an access to all environment variables during the build time",
 	"main": "index.js",
 	"author": "Constantine Genchevsky <const.gen@gmail.com>",
@@ -9,7 +9,7 @@
 		"type": "git",
 		"url": "https://github.com/constgen/constgen-neutrino.git"
 	},
-	"homepage": "https://github.com/constgen/constgen-neutrino/packages/env",
+	"homepage": "https://github.com/constgen/constgen-neutrino/tree/master/packages/env",
 	"keywords": [
 		"neutrino",
 		"neutrino-middlware",

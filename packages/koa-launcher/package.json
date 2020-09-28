@@ -1,6 +1,6 @@
 {
 	"name": "@constgen/neutrino-koa-launcher",
-	"version": "1.6.0",
+	"version": "1.9.2",
 	"description": "Neutrino middleware for an automatic Koa application launching in a server with hot reload",
 	"main": "index.js",
 	"author": "Constantine Genchevsky <const.gen@gmail.com>",
@@ -9,7 +9,7 @@
 		"type": "git",
 		"url": "https://github.com/constgen/constgen-neutrino.git"
 	},
-	"homepage": "https://github.com/constgen/constgen-neutrino/packages/koa-launcher",
+	"homepage": "https://github.com/constgen/constgen-neutrino/tree/master/packages/koa-launcher",
 	"keywords": [
 		"neutrino",
 		"neutrino-middlware",

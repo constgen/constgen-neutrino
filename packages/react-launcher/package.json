@@ -1,6 +1,6 @@
 {
 	"name": "@constgen/neutrino-react-launcher",
-	"version": "1.7.0",
+	"version": "1.9.2",
 	"description": "Neutrino middleware for an automatic React application launching in a browser document with hot reload",
 	"main": "index.js",
 	"author": "Constantine Genchevsky <const.gen@gmail.com>",
@@ -9,7 +9,7 @@
 		"type": "git",
 		"url": "https://github.com/constgen/constgen-neutrino.git"
 	},
-	"homepage": "https://github.com/constgen/constgen-neutrino/packages/react-launcher",
+	"homepage": "https://github.com/constgen/constgen-neutrino/tree/master/packages/react-launcher",
 	"keywords": [
 		"neutrino",
 		"neutrino-middlware",
