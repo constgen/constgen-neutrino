@@ -1,6 +1,6 @@
 {
 	"name": "@constgen/neutrino",
-	"version": "1.9.2",
+	"version": "1.9.3",
 	"private": true,
 	"description": "Neutrino middlewares for a quick project preset building",
 	"author": "Constantine Genchevsky <const.gen@gmail.com>",
