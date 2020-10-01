@@ -2,8 +2,8 @@ let path = require('path')
 
 module.exports = function () {
 	return function (neutrino) {
-		let launcherPath           = path.resolve(__dirname, './launcher/launcher.js')
-		let projectNodeModulesPath = path.resolve(process.cwd(), 'node_modules')
+		let launcherPath = path.resolve(__dirname, './launcher/launcher.js')
+		let projectPath  = process.cwd()
 
 		neutrino.config
 			.devServer
@@ -13,7 +13,7 @@ module.exports = function () {
 				.end()
 			.resolve
 				.alias
-					.set('vue$', path.resolve(path.join(projectNodeModulesPath, 'vue')))
+					.set('vue$', path.resolve('vue', { paths: [projectPath] }))
 					.end()
 				.end()
 

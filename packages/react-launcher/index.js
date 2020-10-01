@@ -4,8 +4,8 @@ let deepmerge = require('deepmerge')
 
 module.exports = function () {
 	return function (neutrino) {
-		let launcherPath           = path.resolve(__dirname, './launcher/launcher.js')
-		let projectNodeModulesPath = path.resolve(process.cwd(), 'node_modules')
+		let launcherPath = path.resolve(__dirname, './launcher/launcher.js')
+		let projectPath  = process.cwd()
 
 		neutrino.config
 			.devServer
@@ -15,7 +15,7 @@ module.exports = function () {
 				.end()
 			.resolve
 				.alias
-					.set('react', path.resolve(path.join(projectNodeModulesPath, 'react')))
+					.set('react', require.resolve('react', { paths: [projectPath] }))
 					.set('react-dom', require.resolve('@hot-loader/react-dom'))
 					.end()
 				.end()
