@@ -24,6 +24,7 @@
 - [`@constgen/neutrino-sourcemap`](./packages/sourcemap)
 - [`@constgen/neutrino-static-files`](./packages/static-files)
 - [`@constgen/neutrino-svg-loader`](./packages/svg-loader)
+- [`@constgen/neutrino-svgr-loader`](./packages/svgr-loader)
 - [`@constgen/neutrino-vue-launcher`](./packages/vue-launcher)
 - [`@constgen/neutrino-vue-loader`](./packages/vue-loader)
 
