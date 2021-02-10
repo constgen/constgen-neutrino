@@ -14,6 +14,7 @@
 - [`@constgen/neutrino-image-loader`](./packages/image-loader)
 - [`@constgen/neutrino-koa-launcher`](./packages/koa-launcher)
 - [`@constgen/neutrino-mdx-loader`](./packages/mdx-loader)
+- [`@constgen/neutrino-media-loader`](./packages/media-loader)
 - [`@constgen/neutrino-mode`](./packages/mode)
 - [`@constgen/neutrino-node-loader`](./packages/node-loader)
 - [`@constgen/neutrino-optimization`](./packages/optimization)
