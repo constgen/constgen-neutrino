@@ -1,0 +1,39 @@
+{
+	"name": "@constgen/neutrino-html-noscript",
+	"version": "1.11.0",
+	"description": "Neutrino middleware to inject <noscript> tag to a document",
+	"main": "index.js",
+	"author": "Constantine Genchevsky <const.gen@gmail.com>",
+	"license": "GPL-3.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/constgen/constgen-neutrino.git"
+	},
+	"homepage": "https://github.com/constgen/constgen-neutrino/tree/master/packages/html-noscript",
+	"keywords": [
+		"neutrino",
+		"neutrino-middleware",
+		"middleware",
+		"preset",
+		"webpack",
+		"html",
+		"noscript"
+	],
+	"dependencies": {
+		"html-webpack-noscript-plugin": "~1.0.0",
+		"html-webpack-plugin": "^4.0.0"
+	},
+	"peerDependencies": {
+		"neutrino": "^9.0.0",
+		"webpack": "^4.0.0"
+	},
+	"files": [
+		"**/*.js",
+		"README.md",
+		"package.json"
+	],
+	"engines": {
+		"node": ">=10",
+		"npm": ">=5.4.0"
+	}
+}

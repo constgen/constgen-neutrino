@@ -10,6 +10,7 @@
 - [`@constgen/neutrino-babel-loader`](./packages/babel-loader)
 - [`@constgen/neutrino-dependency`](./packages/dependency)
 - [`@constgen/neutrino-env`](./packages/env)
+- [`@constgen/neutrino-html-noscript`](./packages/html-noscript)
 - [`@constgen/neutrino-image-loader`](./packages/image-loader)
 - [`@constgen/neutrino-koa-launcher`](./packages/koa-launcher)
 - [`@constgen/neutrino-mdx-loader`](./packages/mdx-loader)
