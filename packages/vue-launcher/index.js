@@ -13,7 +13,7 @@ module.exports = function () {
 				.end()
 			.resolve
 				.alias
-					.set('vue$', path.resolve('vue', { paths: [projectPath] }))
+					.set('vue$', require.resolve('vue', { paths: [projectPath] }))
 					.end()
 				.end()
 
