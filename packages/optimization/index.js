@@ -54,36 +54,61 @@ module.exports = function (customSettings = {}) {
 					chunks            : 'all',
 					name              : false,
 					maxInitialRequests: 6,
-					maxAsyncRequests  : 6,
+					maxAsyncRequests  : Infinity,
 					minSize           : 30000,
+					maxSize           : developmentMode ? 0 : MAX_ASSET_SIZE,
 					minChunks         : 2,
 					cacheGroups       : {
 						default       : false,
 						defaultVendors: false,
 						vendors       : {
+							priority          : 10,
 							test              : NODE_MODULES_EXP,
 							name              : 'vendor',
 							chunks            : 'initial',
 							reuseExistingChunk: true,
 							enforce           : true
 						},
+
+						// async_vendor: {
+						// 	priority: 9,
+						// 	test              : NODE_MODULES_EXP,
+						// 	name              : developmentMode,
+						// 	chunks            : 'async',
+						// 	reuseExistingChunk: true,
+						// 	enforce           : true
+						// },
 						async_vendor: {
+							priority          : 9,
 							test              : NODE_MODULES_EXP,
-							name              : developmentMode,
+							name              : 'async_vendor',
 							chunks            : 'async',
 							reuseExistingChunk: true,
 							enforce           : true
 						},
+
+						// common: {
+						// 	priority: 8,
+						// 	// idHint: 'common',
+						// 	name              : developmentMode,
+						// 	chunks            : 'all',
+						// 	minChunks         : 2,
+						// 	reuseExistingChunk: true
+						// },
 						common: {
+							priority: 8,
+
 							// idHint: 'common',
-							name              : developmentMode,
+							name              : 'common',
 							chunks            : 'initial',
 							minChunks         : 2,
 							reuseExistingChunk: true
 						},
 						async_common: {
-							// idHint: 'common',
-							name              : developmentMode,
+							priority: 7,
+
+							// idHint: 'async_common',
+							name              : 'async_common',
 							chunks            : 'async',
 							minChunks         : 2,
 							reuseExistingChunk: true
