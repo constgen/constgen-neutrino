@@ -61,27 +61,32 @@ module.exports = function (customSettings = {}) {
 						default       : false,
 						defaultVendors: false,
 						vendors       : {
-							test   : NODE_MODULES_EXP,
-							name   : 'vendor',
-							chunks : 'initial',
-							enforce: true,
-							maxSize: MAX_ASSET_SIZE
+							test              : NODE_MODULES_EXP,
+							name              : 'vendor',
+							chunks            : 'initial',
+							reuseExistingChunk: true,
+							enforce           : true
 						},
 						async_vendor: {
 							test              : NODE_MODULES_EXP,
 							name              : developmentMode,
 							chunks            : 'async',
 							reuseExistingChunk: true,
-							enforce           : true,
-							maxSize           : MAX_ASSET_SIZE
+							enforce           : true
 						},
 						common: {
 							// idHint: 'common',
 							name              : developmentMode,
-							chunks            : 'all',
+							chunks            : 'initial',
 							minChunks         : 2,
-							reuseExistingChunk: true,
-							maxSize           : MAX_ASSET_SIZE
+							reuseExistingChunk: true
+						},
+						async_common: {
+							// idHint: 'common',
+							name              : developmentMode,
+							chunks            : 'async',
+							minChunks         : 2,
+							reuseExistingChunk: true
 						}
 
 						// config: {
