@@ -1,8 +1,7 @@
 import 'react-hot-loader/patch'
 import React from 'react'
 import { render } from 'react-dom'
-
-import HotEntry from './hot-entry'
+import HotEntry from '__hot-entry__' // eslint-disable-line import/no-unresolved
 
 let rootElement = document.querySelector('#root')
 

@@ -20,15 +20,16 @@
 		"hot"
 	],
 	"dependencies": {
-		"react-hot-loader": "4.12.21",
-		"@hot-loader/react-dom": "16.13.0",
-		"deepmerge": "4.2.2"
+		"react-hot-loader": "~4.13.0",
+		"@hot-loader/react-dom": "^17.0.0",
+		"babel-merge": "3.0.0",
+		"webpack-virtual-modules": "0.4.2"
 	},
 	"peerDependencies": {
 		"neutrino": "^9.0.0",
 		"webpack": "^4.0.0",
-		"react": "^16.0.0 || ^17.0.0",
-    	"react-dom": "^16.0.0 || ^17.0.0"
+		"react": "^17.0.0",
+    	"react-dom": "^17.0.0"
 	},
 	"files": [
 		"**/*.js",

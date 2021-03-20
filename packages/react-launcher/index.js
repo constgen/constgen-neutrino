@@ -1,11 +1,8 @@
-let path = require('path')
-
-let deepmerge = require('deepmerge')
+let ReactLauncher = require('./plugins/ReactLauncherPlugin')
 
 module.exports = function () {
 	return function (neutrino) {
-		let launcherPath = path.resolve(__dirname, './launcher/launcher.js')
-		let projectPath  = process.cwd()
+		let projectPath = process.cwd()
 
 		neutrino.config
 			.devServer
@@ -16,30 +13,11 @@ module.exports = function () {
 			.resolve
 				.alias
 					.set('react', require.resolve('react', { paths: [projectPath] }))
-					.set('react-dom', require.resolve('@hot-loader/react-dom'))
+					.set('react-dom', require.resolve('react-dom', { paths: [projectPath] }))
 					.end()
 				.end()
-			.module
-				.rule('compile')
-					.use('babel')
-						.tap((options = {}) => deepmerge(options, {
-							plugins: [require.resolve('react-hot-loader/babel')]
-						}))
-						.end()
-					.end()
-				.end()
-
-		Object.keys(neutrino.options.mains).forEach(function (key) {
-			neutrino.config
-				.entry(key)
-					.clear()
-					.add(launcherPath)
-					.end()
-				.resolve
-					.alias
-						.set('__entry__', path.resolve(__dirname, neutrino.options.mains[key].entry))
-						.end()
-					.end()
-		})
+		.plugin('launcher')
+			.use(ReactLauncher)
+			.end()
 	}
 }
